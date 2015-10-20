@@ -5,11 +5,13 @@
 View[] views;
 int currentView;
 color bgColor;
+XML route;
 
 void setup() {
   size(640, 320);
   basicSetup();
   createViews();
+  loadRoutes();
 }
 
 void basicSetup() {
@@ -21,6 +23,16 @@ void basicSetup() {
 void createViews() {
   views[0] = new View(0, bgColor);
   views[1] = new View(1, color(255,140,248,1));
+}
+
+void loadRoutes() {
+  route = loadXML("smtJmtKml.kml");
+  XML nameXML = route.getChild("kml");
+  println(route);
+  println("*******")
+  println(nameXML);
+  String name = nameXML.getContent();
+  println(name);
 }
 
 void draw() {
