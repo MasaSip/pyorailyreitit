@@ -10,7 +10,10 @@ class Waypoint {
 	metodeja
 		laske kahden waypointin välinen etäisyys reitillä
 		getterit ja setteri
-		
-
 	*/
+
+	Waypoint(){
+
+	}
+
 }

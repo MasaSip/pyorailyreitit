@@ -10,4 +10,15 @@ class Track {
 		palauta array reitin varrella käytetyistä päällysteistä (pavement), niitä esim. street, tarmac, sand
 
 	*/
+
+  ArrayList<Waypoint> waypoints;
+  Waypoint start;
+  Waypoint end;
+
+	Track(Waypoint start){
+    this.start = start;
+    this.waypoints = new ArrayList<Waypoint>();
+    waypoints.add(start);
+  }
+
 }
