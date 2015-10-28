@@ -15,8 +15,7 @@ float timeElapsedLeft;
 float timeElapsedRight;
 float timeElapsedBack; //timeElapsedFront not needed
 
-//limits in order: l,r,f,b
-float leftFieldLimits[4] = [kinect.width/6, kinect.width/3, kinect.height*2/5, kinect.height*3/5];
+float leftFieldLimits[4] = [kinect.width/6, kinect.width/3, kinect.height*2/5, kinect.height*3/5]; //l,r,f,b
 float rightFieldLimits[4] = [kinect.width*2/3, kinect.width*5/6, kinect.height*2/5, kinect.height*3/5];
 float frontFieldLimits[4] = [kinect.width*1/6, kinect.width*5/6, kinect.height/10, kinect.height*2/5];
 float backFieldLimits[4] = [kinect.width*1/3, kinect.width*2/3, kinect.height*3/5, kinect.height*4/5];
@@ -25,6 +24,8 @@ float horizontalInitPoint;
 float horizontalCursor;
 float verticalRefPoint;
 float verticalCursor;
+
+int[] depth;
 
 void setup() {
   size(640, 520);
@@ -38,17 +39,7 @@ void setup() {
 }
 
 void draw() {
-  String action = track();
-
-  if (action == "confirm") {
-
-  } else if (action == "return") {
-
-  } else if (action == "move horizontal") {
-
-  } else if (action == "move vertical") {
-
-  }
+  String result = track();
 
 }
 
