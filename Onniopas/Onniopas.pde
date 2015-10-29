@@ -5,8 +5,8 @@
 View[] views;
 int currentView;
 color bgColor;
-XML route;
-Track track;
+String[] route;
+
 
 void setup() {
   size(640, 320);

@@ -1,64 +1,109 @@
 void loadRoutes() {
+  String[] trackPieces;
+  int targetAmountOfPieces = 10;
+
+  JSONObject route = loadJSONObject("data/smt-otsolahdenRanta-westendinMaki.json");
+  JSONArray path = route.getJSONArray("path");
+
+  ArrayList<TrackSegment> trackSegments = new ArrayList<TrackSegment>();
   
-  JSONObject json = loadJSONObject("data/smt-jmt.json");
-  JSONArray path = json.getJSONArray("path");
-  float sum = 0;
-  JSONArray points = path.getJSONObject(0).getJSONArray("points");
-  
-  
-  ArrayList<Coordinate> coordinates = new ArrayList<Coordinate>();
-  for (int i = 0; i < points.size(); i++) {
-    JSONObject coordinate = points.getJSONObject(i);
-    Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), 0);
-    coordinates.add(coord);
+
+  for (int i = 0; i < path.size(); i++){
+    JSONObject pathObject = path.getJSONObject(i);
+
+    JSONArray points = pathObject.getJSONArray("points");
+    ArrayList<Coordinate> coordinates = new ArrayList<Coordinate>();
+      
+      for (int j = 0; j < points.size(); j++) {
+        JSONObject coordinate = points.getJSONObject(j);
+        Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), 0);
+        coordinates.add(coord);
+      }
+    String type = pathObject.getString("type");
+    float length = pathObject.getFloat("length");
+    TrackSegment trackSegment = new TrackSegment(coordinates, length, type);
+    trackSegments.add(trackSegment);
+    println(trackSegment);
   }
-  TrackSegment segment1 = new TrackSegment(coordinates);
 
-  for (int i = 1; i < path.size()-1; i++){
-    sum += path.getJSONObject(i).getFloat("length");
-  }
-  println(sum);
-
-  route = loadXML("smtJmtKml.kml");
-  XML nameXML = route.getChild("Document/name");
-  String name = nameXML.getContent();
-  XML[] placemarks = route.getChildren("Document/Placemark");
-  track = new Track(new Waypoint());
- 
-  // koodin testausta
-  Coordinate a = new Coordinate(24.83470903446,60.188652103573,8.285);
-  println(a.getLongitude());
-  println(name);
-  getCoordinatesFromXmlTag(placemarks[2]);
+  trackPieces = calculateTrackPieces(trackSegments, targetAmountOfPieces);
+  println(trackPieces);
   
-
-  // Two firs placemarks are only dublicates of the first and last coordinates
-  for (int i=2; i<placemarks.length; i++){
-
-  }
 }
 
-void sortRoadType = function() {
-  //PSEUDO
 
-  float wholeLength = getWholeLength();
+String[] calculateTrackPieces(ArrayList<TrackSegment> trackSegments, int targetAmountOfPieces) {
 
-  ArrayList<float> roads = new ArrayList<float>();
-  ArrayList<String> types = new ArrayList<String>();
-  
-
-  while(someRouteLeft()) {
-    if (isTarmac()) {
-      
-    }
-    else if (isGravel()) {
-      //
-    }
-    else {
-      //unknown
+  String[] trackPieces = new String[targetAmountOfPieces];
+  int latestModifiedIndex = 0;
+  // Calculates track length for segments with known type (gravel or tarmac)
+  float trackLength = 0;
+  for (int i=0; i < trackSegments.size(); i++) {
+    TrackSegment segment = trackSegments.get(i);
+    if (!segment.getType().equals("unknown")){
+      trackLength += segment.getLength();
     }
   }
 
+  float pieceLength = trackLength/targetAmountOfPieces;
+  float tarmac = 0;
+  float gravel = 0;
+
+  for (int i=0; i < trackSegments.size(); i++) {
+      TrackSegment segment = trackSegments.get(i);
+      println(segment.getType());
+      if (segment.getType().equals("tarmac")){
+        tarmac += segment.getLength();
+        while (tarmac > pieceLength){
+          trackPieces[latestModifiedIndex] = segment.getType();
+          tarmac -= pieceLength;
+          latestModifiedIndex++;
+        }
+      }
+      if (segment.getType().equals("gravel")){
+        gravel += segment.getLength();
+        while (gravel > pieceLength){
+          trackPieces[latestModifiedIndex] = segment.getType();
+          gravel -= pieceLength;
+          latestModifiedIndex++;
+        }
+      }
+  }
+
+  if (tarmac > gravel){
+    trackPieces[targetAmountOfPieces-1] = "tarmac";
+  } else {
+    trackPieces[targetAmountOfPieces-1] = "gravel";
+  }
+
+  return trackPieces;
+}
+  
+
+/*
+
+  void sortRoadType = function() {
+    //PSEUDO
+
+    float wholeLength = getWholeLength();
+
+    ArrayList<float> roads = new ArrayList<float>();
+    ArrayList<String> types = new ArrayList<String>();
+    
+
+    while(someRouteLeft()) {
+      if (isTarmac()) {
+        
+      }
+      else if (isGravel()) {
+        //
+      }
+      else {
+        //unknown
+      }
+    }
+
+  }
 }
 
 float getWholeLength = function() {
@@ -68,18 +113,4 @@ float getWholeLength = function() {
 boolean someRouteLeft = function() {
   return true;
 }
-
-Coordinate[] getCoordinatesFromXmlTag(XML placemark){
-  String coordinateString = placemark.getChild("LineString/coordinates").getContent();
-  String[] points = split(coordinateString, ' ');
-  Coordinate[] coordinates = new Coordinate[points.length];
-  
-  // The last element is and empty at points array because coordinateString ends to a space
-  println(points.length);
-  for (int i = 0; i<points.length-1; i++){
-    String[] logLatHeig = split(points[i], ',');
-    coordinates[i] = new Coordinate(float(logLatHeig[0]), float(logLatHeig[1]), float(logLatHeig[2]));
-  }
- 
-  return coordinates;
-}
+*/
