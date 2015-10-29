@@ -31,6 +31,17 @@ void loadRoutes() {
   JSONObject json = loadJSONObject("data/smt-jmt.json");
   JSONArray path = json.getJSONArray("path");
   float sum = 0;
+  JSONArray points = path.getJSONObject(1).getJSONArray("points");
+  
+  
+  ArrayList<Coordinate> coordinates = new ArrayList<Coordinate>();
+  for (int i = 0; i < points.size(); i++) {
+    JSONObject coordinate = points.getJSONObject(i);
+    Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), 0);
+    coordinates.add(coord);
+  }
+  TrackSegment segment1 = new TrackSegment(coordinates);
+
   for (int i = 1; i < path.size()-1; i++){
     sum += path.getJSONObject(i).getFloat("length");
   }

@@ -17,6 +17,10 @@ class Coordinate {
     this.height = height;
   }
   
+  String toString(){
+    return this.longitude + ", " +  this.latitude + ", " + this.height;
+  }
+
   double getLongitude(){
     return longitude;
   }
