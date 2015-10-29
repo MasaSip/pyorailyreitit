@@ -27,6 +27,19 @@ void createViews() {
 }
 
 void loadRoutes() {
+  
+  JSONObject json = loadJSONObject("data/smt-jmt.json");
+  JSONArray path = json.getJSONArray("path");
+  float sum = 0;
+  for (int i = 1; i < path.size()-1; i++){
+    sum += path.getJSONObject(i).getFloat("length");
+  }
+  println(sum);
+
+
+
+
+
   route = loadXML("smtJmtKml.kml");
   XML nameXML = route.getChild("Document/name");
   String name = nameXML.getContent();
