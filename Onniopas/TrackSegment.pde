@@ -3,8 +3,7 @@ class TrackSegment {
   ArrayList<Coordinate> coordinates;
   float length;
   String type;
-
-
+  
   TrackSegment(ArrayList<Coordinate> coordinates, float length, String type){
     this.coordinates = coordinates;
     this.length = length;
