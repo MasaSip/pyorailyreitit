@@ -59,14 +59,14 @@ void createViews() {
   
   // Second view: length of the route
   views[1] = new View(0, bgColor, "Reitin pituus", "Paina CTRL nähdäksesi reitti.");
-  
-  // Third view: other features of the route
-  
-  // Fourth view: visualise the (three) best route(s)
+   
+  // Third view: visualise the (three) best route(s)
   views[2] = new View(2, bgColor, "Reitti");
   
   // more exact visualisations on the chosen route
   // show chosen route on the map
+  views[3] = new View(3, bgColor, "Valittu reitti kartalla");
+  
 }
 
 
@@ -131,6 +131,20 @@ void drawViews() {
     drawRoutes();
   }
   
+  else if (currentView == 3) {
+    // background
+    background(views[3].clr);
+    
+    // texts
+    PFont font2 = createFont("calibri.ttf", 30);
+    textFont(font2);
+    fill(255,255,255);
+    text(views[3].title, 10, 60);
+    
+    fill(15, 180, 150);
+    rect(200, 120, 870, 500);
+  }  
+  
 }
 
 void drawRoutes() {
@@ -143,7 +157,7 @@ void drawRoutes() {
 void keyPressed() {
   // confirm: wave right or left arm
   if (keyCode == CONTROL) {
-    if (currentView >= 0 && currentView < 2) {
+    if (currentView >= 0 && currentView < 3) {
       currentView++;
       println("Näkymä " + currentView);
     }
@@ -151,7 +165,7 @@ void keyPressed() {
   
   // return: step backwards
   else if (keyCode == ALT) {
-    if (currentView <= 2 && currentView > 0) {
+    if (currentView <= 3 && currentView > 0) {
       currentView--;
       println("Näkymä " + currentView);
     }
