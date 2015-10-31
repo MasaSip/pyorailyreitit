@@ -35,7 +35,8 @@ void basicSetup() {
   slider = new Slider("horizontal", 20, 50, 100, 390, accentColor);
 
   // get from backend (road types)
-  route = loadRoutes();
+  //route = loadRoutes();
+  route = new String[]{"tarmac", "tarmac", "tarmac", "tarmac", "gravel", "gravel", "gravel", "tarmac", "tarmac", "tarmac"};
 
   // list for saving road images
   images = new PImage[10];
@@ -46,8 +47,17 @@ void basicSetup() {
 
 void getRouteImages() {
   for (int i = 0; i < route.length; i++) {
+    float random = random(100);
     if (route[i].equals("tarmac")) {
-      images[i] = loadImage("tarmac1.png");
+      if (random <= 20) {
+        images[i] = loadImage("tarmac1.png");
+      }
+      else if (random > 20 && random < 80) {
+        images[i] = loadImage("tarmac3.png");
+      }
+      else {
+        images[i] = loadImage("tarmac2.png");
+      }
     }
     else if (route[i].equals("gravel")) {
       images[i] = loadImage("gravel1.png");
@@ -79,7 +89,7 @@ void drawViews() {
   
   // background
   background(views[1].clr);
-  drawBackground();
+  //drawBackground();
   
   if (currentView == 0) {
     // texts
