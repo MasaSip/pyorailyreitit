@@ -7,6 +7,7 @@ int currentView;
 color bgColor;
 color accentColor;
 color fontColor;
+color rectColor;
 
 Slider slider;
 String[] route;
@@ -26,9 +27,10 @@ void basicSetup() {
   bgColor = color(140,221,225,1);
   accentColor = color(247,148,29,1);
   fontColor = color(255,255,255,1);
+  rectColor = color(140, 304, 100, 1);
   
   // Slider
-  slider = new Slider("horizontal", 20, 50, 100, 100, accentColor);
+  slider = new Slider("horizontal", 20, 50, 100, 390, accentColor);
 
   // get from backend (road types)
   route = loadRoutes();
@@ -82,6 +84,7 @@ void drawViews() {
     // texts
     PFont font = createFont("calibri.ttf", 120);
     textFont(font);
+    fill(255,255,255);
     text(views[0].title, 495, 325);
     PFont font1 = createFont("calibri.ttf", 30);
     textFont(font1);
@@ -99,12 +102,18 @@ void drawViews() {
     // texts
     PFont font2 = createFont("calibri.ttf", 30);
     textFont(font2);
+    fill(255,255,255);
     text(views[1].title, 10, 60);
     PFont font3 = createFont("calibri.ttf", 30);
     textFont(font3);
+    fill(255,255,255);
     text(views[1].text, 400, 600);
     
+    noStroke();
+    fill(230,148,29);
+    rect(50, 400, 1180, 30);
     // slider
+    fill(247,110,29);
     slider.drawSlider();
   }
   
@@ -115,6 +124,7 @@ void drawViews() {
     // texts
     PFont font2 = createFont("calibri.ttf", 30);
     textFont(font2);
+    fill(255,255,255);
     text(views[2].title, 10, 60);
     
     // routes
