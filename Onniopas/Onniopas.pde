@@ -10,6 +10,7 @@ color fontColor;
 
 Slider slider;
 String[] route;
+
 PImage[] images;
 
 void setup() {
@@ -30,7 +31,7 @@ void basicSetup() {
   slider = new Slider("horizontal", 20, 50, 100, 100, accentColor);
 
   // get from backend (road types)
-  route = new String[]{"tarmac", "tarmac", "tarmac", "tarmac", "gravel", "gravel", "gravel", "gravel", "tarmac", "tarmac"};
+  route = loadRoutes();
 
   // list for saving road images
   images = new PImage[10];
@@ -41,10 +42,10 @@ void basicSetup() {
 
 void getRouteImages() {
   for (int i = 0; i < route.length; i++) {
-    if (route[i] == "tarmac") {
+    if (route[i].equals("tarmac")) {
       images[i] = loadImage("tarmac1.png");
     }
-    else if (route[i] == "gravel") {
+    else if (route[i].equals("gravel")) {
       images[i] = loadImage("gravel1.png");
     }
   }
@@ -65,6 +66,8 @@ void createViews() {
   // more exact visualisations on the chosen route
   // show chosen route on the map
 }
+
+
 
 void draw() {
   drawViews();
