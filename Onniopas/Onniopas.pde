@@ -71,8 +71,12 @@ void draw() {
 }
 
 void drawViews() {
+  
   if (currentView == 0) {
+    // background
     background(views[0].clr);
+    
+    // texts
     PFont font = createFont("calibri.ttf", 120);
     textFont(font);
     text(views[0].title, 495, 325);
@@ -80,12 +84,16 @@ void drawViews() {
     textFont(font1);
     text(views[0].text, 400, 600);
     
-    // draw bike
+    // bike
     rotate(PI/-4.0);
     image(views[0].img, 45, 370);
   }
+  
   else if (currentView == 1) {
+    // background
     background(views[1].clr);
+    
+    // texts
     PFont font2 = createFont("calibri.ttf", 30);
     textFont(font2);
     text(views[1].title, 10, 60);
@@ -93,14 +101,20 @@ void drawViews() {
     textFont(font3);
     text(views[1].text, 400, 600);
     
-    // Draw slider
+    // slider
     slider.drawSlider();
   }
+  
   else if (currentView == 2) {
+    // background
     background(views[2].clr);
+    
+    // texts
     PFont font2 = createFont("calibri.ttf", 30);
     textFont(font2);
     text(views[2].title, 10, 60);
+    
+    // routes
     drawRoutes();
   }
   
