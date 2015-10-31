@@ -19,7 +19,15 @@ class Slider {
   
   void slide(float newPos) {
     if (dir == "horizontal") {
-      x = newPos;
+      if (newPos < width-70 || newPos > 50) {
+        x = newPos;
+      }
+      else if (newPos >= width-70) {
+        x = width-70;
+      }
+      else if (newPos <= 50) {
+        x = 50;
+      }
     }
   }
   
