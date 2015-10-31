@@ -5,6 +5,10 @@
 View[] views;
 int currentView;
 color bgColor;
+color accentColor;
+color fontColor;
+
+Slider slider;
 String[] route;
 PImage[] images;
 
@@ -15,9 +19,15 @@ void setup() {
 }
 
 void basicSetup() {
+  // Views setup
   currentView = 0;
   views = new View[4];
   bgColor = color(140,221,225,1);
+  accentColor = color(247,148,29,1);
+  fontColor = color(255,255,255,1);
+  
+  // Slider
+  slider = new Slider("horizontal", 20, 50, 100, 100, accentColor);
 
   // get from backend (road types)
   route = new String[]{"tarmac", "tarmac", "tarmac", "tarmac", "gravel", "gravel", "gravel", "gravel", "tarmac", "tarmac"};
@@ -42,10 +52,10 @@ void getRouteImages() {
 
 void createViews() {
   // First view: start view with title
-  views[0] = new View(0, bgColor, "NNIOPAS", "Paina hiiren vasenta siirtyäksesi valitsemaan reittejä.");
+  views[0] = new View(0, bgColor, loadImage("bike.png"), "NNIOPAS", "Paina CTRL siirtyäksesi valitsemaan reittejä.");
   
   // Second view: length of the route
-  views[1] = new View(0, bgColor, "Reitin pituus", "Paina hiiren vasenta nähdäksesi reitti.");
+  views[1] = new View(0, bgColor, "Reitin pituus", "Paina CTRL nähdäksesi reitti.");
   
   // Third view: other features of the route
   
@@ -65,10 +75,14 @@ void drawViews() {
     background(views[0].clr);
     PFont font = createFont("calibri.ttf", 120);
     textFont(font);
-    text(views[0].title, 500, 350);
+    text(views[0].title, 495, 325);
     PFont font1 = createFont("calibri.ttf", 30);
     textFont(font1);
-    text(views[0].text, 330, 600);
+    text(views[0].text, 400, 600);
+    
+    // draw bike
+    rotate(PI/-4.0);
+    image(views[0].img, 45, 370);
   }
   else if (currentView == 1) {
     background(views[1].clr);
@@ -78,6 +92,9 @@ void drawViews() {
     PFont font3 = createFont("calibri.ttf", 30);
     textFont(font3);
     text(views[1].text, 400, 600);
+    
+    // Draw slider
+    slider.drawSlider();
   }
   else if (currentView == 2) {
     background(views[2].clr);
@@ -96,17 +113,29 @@ void drawRoutes() {
   }
 }
 
-void drawSlider() {
+void keyPressed() {
+  // confirm: wave right or left arm
+  if (keyCode == CONTROL) {
+    if (currentView >= 0 && currentView < 2) {
+      currentView++;
+      println("Näkymä " + currentView);
+    }
+  }
   
+  // return: step backwards
+  else if (keyCode == ALT) {
+    if (currentView <= 2 && currentView > 0) {
+      currentView--;
+      println("Näkymä " + currentView);
+    }
+  }
+  
+  // slide: move hand in front of the user
+  else if (keyCode == SHIFT) {
+    moveSlider();
+  }
 }
 
-void mouseClicked() {
-  if (currentView >= 0 && currentView < 2) {
-    currentView++;
-    println("Näkymä " + currentView);
-  }
-  else {
-    currentView = 0;
-    println("Näkymä " + currentView);
-  }
+void moveSlider() {
+  slider.slide(mouseX);
 }

@@ -25,6 +25,14 @@ class View {
     this.text = text;
   }
   
+  View(int whichView, color clr, PImage img, String title, String text) {
+    this.whichView = whichView;
+    this.clr = clr;
+    this.img = img;
+    this.title = title;
+    this.text = text;
+  }
+  
   View(int whichView, color clr, PImage img) {
     this.whichView = whichView;
     this.clr = clr;
