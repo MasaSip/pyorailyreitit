@@ -6,22 +6,31 @@ String track(String trackCursor) {
  //println("startleft");
  if (checkField(depthValues, leftFieldLimits)) {
    timeElapsedLeft += 1;
-   if (timeElapsedLeft >= timeToConfirm) return "confirm";
+   if (timeElapsedLeft >= timeToConfirm) {
+     timeElapsedLeft = 0;
+     return "confirm";
+   }
  } else timeElapsedLeft = 0;
 
  //println("startright");
  if (checkField(depthValues, rightFieldLimits)) {
    timeElapsedRight += 1;
-   if (timeElapsedRight >= timeToConfirm) return "confirm";
+   if (timeElapsedRight >= timeToConfirm) {
+     timeElapsedRight = 0;
+     return "confirm";
+   }
  } else timeElapsedRight = 0;
 
- //println("startfront");
+ //println("startback");
  if (checkField(depthValues, backFieldLimits)) {
    timeElapsedBack += 1;
-   if (timeElapsedBack >= timeToConfirm) return "return";
+   if (timeElapsedBack >= timeToConfirm) {
+     timeElapsedBack = 0;
+     return "return";
+   }
  } else timeElapsedBack = 0;
 
- //println("startback");
+ //println("startfront");
  if (trackCursor == "vertical") {
    if (monitorField(depthValues, frontFieldLimits, "vertical")) return "vertical";
  } else if (trackCursor == "horizontal") {
@@ -52,6 +61,7 @@ boolean checkField(int[] depthValues, int[] fieldLimits) {
       if (depth < floorDistance - distanceBuffer) {
         areaVisible += 1;
         point(x,y);
+        if (timeElapsedLeft == timeToConfirm && fieldLimits[1] == round(kinect.width/3)) println(depth);
       }
 
     }
@@ -64,8 +74,11 @@ boolean monitorField(int[] depthValues, int[] fieldLimits, String direction) {
 
  int areaVisible = 0;
  int count = 0;
+ int refCount = 0;
  int xSumCursor = 0;
- int ySumCursor = 0;
+ int depthSumCursor = 0;
+ int xSumRef = 0;
+ int depthSumRef = 0;
 
  for (int y = fieldLimits[2]; y < fieldLimits[3]; y += trackSkip) {
    for (int x = fieldLimits[0]; x < fieldLimits[1]; x += trackSkip) {
@@ -81,8 +94,15 @@ boolean monitorField(int[] depthValues, int[] fieldLimits, String direction) {
 
        if (count < trackArea) {
          xSumCursor += x;
-         ySumCursor += y;
+         depthSumCursor += depth;
          count += 1;
+         ellipse(x,y,2,2);
+       }
+
+       if (y >= fieldLimits[3] - trackSkip) {
+         xSumRef += x;
+         depthSumRef += depth;
+         refCount += 1;
          ellipse(x,y,2,2);
        }
 
@@ -94,8 +114,10 @@ boolean monitorField(int[] depthValues, int[] fieldLimits, String direction) {
  if (areaVisible > areaToConfirm) {
    if (direction == "vertical") {
      verticalCursor = xSumCursor / trackArea;
+     if (refCount != 0) verticalRefPoint = xSumRef / refCount;
    } else if (direction == "horizontal") {
-     horizontalCursor = ySumCursor / trackArea;
+     horizontalCursor = depthSumCursor / trackArea;
+     if (refCount != 0) horizontalRefPoint = depthSumRef / refCount;
    }
    return true;
  } else return false;
