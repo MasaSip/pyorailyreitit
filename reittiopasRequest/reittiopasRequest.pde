@@ -13,7 +13,7 @@ String baseUrl = "http://api.reittiopas.fi/hsl/prod/?";
 String requestType = "request=cycling&";
 String[] userAndPassword = loadStrings("reittiopas_user.txt");
 String format = "";//"&format=txt";
-String request = "&from=" + from + "&to=" + to + "&via=" + via + "&epsg_out=wgs84"; //SMT, otsolahti, westend output WGS84:ssa
+String request = "&from=" + from + "&to=" + to + "&via=" + via + "&epsg_out=wgs84&elevation=1"; //SMT, otsolahti, westend output WGS84:ssa
 String address = baseUrl + requestType + userAndPassword[0] + format + request;
 
 GetRequest get = new GetRequest(address);
