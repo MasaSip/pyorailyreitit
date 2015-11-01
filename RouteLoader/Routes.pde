@@ -22,6 +22,8 @@ String[] calculateTrackPieces(Track track, int targetAmountOfPieces) {
   float pieceLength = lengthWithKnownPAvement/targetAmountOfPieces;
   float tarmac = 0;
   float gravel = 0;
+  float lengthAtCurrentPiece = 0;
+  float effectiveHeightAtCurrentPiece = 0;
 
   for (int i=0; i < trackSegments.size(); i++) {
       TrackSegment segment = trackSegments.get(i);

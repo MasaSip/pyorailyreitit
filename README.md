@@ -15,3 +15,5 @@ Download ReittiopasAPI user
 and save it in the folder:
 
 	reittiopasRequest
+
+Using reittiopasRequest requres to have HTTP-REQUEST processing library installed

@@ -21,7 +21,7 @@ class Track {
         
       for (int j = 0; j < points.size(); j++) {
         JSONObject coordinate = points.getJSONObject(j);
-        Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), 0);
+        Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), coordinate.getFloat("z"));
         coordinates.add(coord);
       }
 
