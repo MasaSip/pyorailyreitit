@@ -14,6 +14,9 @@ Slider slider;
 String[] route;
 
 PImage[] images;
+PImage earth;
+
+int whichRoute;
 
 void setup() {
   size(1280, 720);
@@ -35,34 +38,49 @@ void basicSetup() {
   slider = new Slider("horizontal", 20, 50, 100, 390, accentColor);
 
   // get from backend (road types)
-  route = loadStrings("routes.txt");
-  //route = new String[]{"tarmac", "tarmac", "tarmac", "tarmac", "gravel", "gravel", "gravel", "tarmac", "tarmac", "tarmac"};
+
+  //route = loadRoutes();
+  route = new String[]{"tarmac-low", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "tarmac-low", "tarmac-low", "tarmac-low"};
+
 
   // list for saving road images
   images = new PImage[10];
-
   // save route images to images list
   getRouteImages();
+  whichRoute = 1;
 }
 
 void getRouteImages() {
   for (int i = 0; i < route.length; i++) {
     float random = random(100);
-    if (route[i].equals("tarmac")) {
-      if (random <= 20) {
+    if (route[i].equals("tarmac-low") || route[i].equals("tarmac-high")) {
+      if (random <= 10) {
         images[i] = loadImage("tarmac1.png");
       }
-      else if (random > 20 && random < 80) {
+      else if (random > 10 && random < 90) {
         images[i] = loadImage("tarmac3.png");
       }
       else {
         images[i] = loadImage("tarmac2.png");
       }
     }
-    else if (route[i].equals("gravel")) {
+    else if (route[i].equals("tarmac-up")) {
+      images[i] = loadImage("tarmac-up.png");
+    }
+    else if (route[i].equals("tarmac-down")) {
+      images[i] = loadImage("tarmac-down.png");
+    }
+    else if (route[i].equals("gravel-low") || route[i].equals("gravel-high")) {
       images[i] = loadImage("gravel1.png");
     }
+    else if (route[i].equals("gravel-up")) {
+      images[i] = loadImage("gravel-up.png");
+    }
+    else if (route[i].equals("gravel-down")) {
+      images[i] = loadImage("gravel-down.png");
+    }
   }
+  earth = loadImage("earth.png");
 }
 
 void createViews() {
@@ -166,8 +184,18 @@ void drawBackground() {
 
 void drawRoutes() {
   for (int i = 0; i < route.length; i++) {
-    images[i].resize(140, 175);
-    image(images[i], i*110.6+70, 0);
+    if (route[i].equals("tarmac-high") || route[i].equals("gravel-high")) {
+      //alkumaapalikka
+      earth.resize(140, 52);
+      image(earth, i*110.6+70, 88+whichRoute*200);
+      //oikeapalikka
+      images[i].resize(140, 140);
+      image(images[i], i*110.6+70, -17+whichRoute*200);
+    }
+    else {
+      images[i].resize(140, 140);
+      image(images[i], i*110.6+70, 0+whichRoute*200);
+    }
   }
 }
 
