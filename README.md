@@ -1,6 +1,6 @@
 # pyorailyreitit
 
-Kinectic application that interactively visualizes convenience of cycling routes
+Kinect application that interactively visualizes convenience of cycling routes
 
 ## Installation
 
