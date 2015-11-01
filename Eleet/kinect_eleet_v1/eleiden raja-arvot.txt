@@ -1,0 +1,21 @@
+horizontal left hand:: 
+left:
+center: 6, 12
+right:
+
+horizontal right hand:: 87, -85
+left:
+center:
+right:
+
+--
+
+vertical left hand
+down: 0.070, 0.120
+center: -0.023, 0.073
+up: -0.159, -0.120
+
+vertical right hand
+down: 0.120, 0.160
+center: -0.060, 0.060
+up: -0.20,  -0.14

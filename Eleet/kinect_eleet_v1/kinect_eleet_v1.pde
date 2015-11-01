@@ -20,8 +20,10 @@ float[] depthLookUp = new float[2048];
 
 float floorDistance = 3.0; // in meters
 float distanceBuffer = 1.0; // in meters
-float timeToConfirm = 70; // amount of times draw is called
-int areaToConfirm = 100; // minimum amount of points
+int timeToConfirm = 70; // amount of times draw is called
+int timeToReturn = 80;
+int areaToConfirm = 300; // minimum amount of points
+boolean recognizedGesture = false;
 float timeElapsedLeft;
 float timeElapsedRight;
 float timeElapsedBack; // timeElapsedFront not needed
@@ -39,16 +41,18 @@ int[] backFieldLimits;
 float horizontalRefPoint;
 float horizontalCursor;
 float horizontalResult;
+float horizontalScaled;
 float verticalRefPoint;
 float verticalCursor;
 float verticalResult;
+float verticalScaled;
 
 void draw() {
 
-  leftFieldLimits = new int[]{kinect.width/6, kinect.width/3, kinect.height*2/5, kinect.height*2/3};
-  rightFieldLimits = new int[]{kinect.width*2/3, kinect.width*5/6, kinect.height*2/5, kinect.height*2/3};
+  leftFieldLimits = new int[]{kinect.width/10, kinect.width/4, kinect.height*1/2, kinect.height*4/5};
+  rightFieldLimits = new int[]{kinect.width*3/4, kinect.width*9/10, kinect.height*1/2, kinect.height*4/5};
   frontFieldLimits = new int[]{kinect.width*1/6, kinect.width*5/6, kinect.height/10, kinect.height*2/5};
-  backFieldLimits = new int[]{kinect.width*1/3, kinect.width*2/3, kinect.height*2/3, kinect.height*5/6};
+  backFieldLimits = new int[]{kinect.width*1/3, kinect.width*2/3, kinect.height*4/5, kinect.height};
 
   // println("  left " + leftFieldLimits[0]); //106, 213, 192, 320
   // println("  right " + rightFieldLimits[0]); //426, 533, 192, 320
@@ -72,27 +76,34 @@ void draw() {
 
   String action = track("horizontal");
 
-  //if (action != "none" && action != "vertical" && action != "horizontal") println(action);
+  if (action != "none" && action != "vertical" && action != "horizontal") println(action);
 
   if (action == "confirm") {
 
   } else if (action == "return") {
 
   } else if (action == "horizontal") {
-    horizontalResult = horizontalCursor - horizontalRefPoint;
+    //horizontalResult = horizontalCursor - horizontalRefPoint;
+    horizontalResult = horizontalCursor - (kinect.width/2);
+    horizontalScaled = max(0, min((horizontalResult + 100) / 2, 100));
+
     timer += 1;
     if (timer == 100) {
       timer = 0;
-      println("H.res: " + horizontalResult);
-      println(" - c: " + horizontalCursor + " - r: " + horizontalRefPoint);
+      println("H.res: " + horizontalScaled);
+      //println(" - c: " + horizontalCursor + " - r: " + horizontalRefPoint);
     }
   } else if (action == "vertical") {
     verticalResult = verticalCursor - verticalRefPoint;
+    if (verticalResult < -0.05) verticalScaled = -1;
+    else if (verticalResult > 0.05) verticalScaled = 1;
+    else verticalScaled = 0;
+
     timer += 1;
     if (timer == 100) {
       timer = 0;
-      println("V.res: " + verticalResult);
-      println(" - c: " + verticalCursor + " - r: " + verticalRefPoint);
+      println("V.res: " + verticalScaled);
+      //println(" - c: " + verticalCursor + " - r: " + verticalRefPoint);
     }
   }
 

@@ -6,29 +6,41 @@ String track(String trackCursor) {
  //println("startleft");
  if (checkField(depthValues, leftFieldLimits)) {
    timeElapsedLeft += 1;
-   if (timeElapsedLeft >= timeToConfirm) {
-     timeElapsedLeft = 0;
+   if (timeElapsedLeft == timeToConfirm && !recognizedGesture) {
+     //timeElapsedLeft = 0;
+     recognizedGesture = true;
      return "confirm";
    }
- } else timeElapsedLeft = 0;
+ } else {
+   timeElapsedLeft = 0;
+   recognizedGesture = false;
+ }
 
  //println("startright");
  if (checkField(depthValues, rightFieldLimits)) {
    timeElapsedRight += 1;
-   if (timeElapsedRight >= timeToConfirm) {
-     timeElapsedRight = 0;
+   if (timeElapsedRight == timeToConfirm && !recognizedGesture) {
+     //timeElapsedRight = 0;
+     recognizedGesture = true;
      return "confirm";
    }
- } else timeElapsedRight = 0;
+ } else {
+   timeElapsedRight = 0;
+   recognizedGesture = false;
+ }
 
  //println("startback");
  if (checkField(depthValues, backFieldLimits)) {
    timeElapsedBack += 1;
-   if (timeElapsedBack >= timeToConfirm) {
-     timeElapsedBack = 0;
+   if (timeElapsedBack == timeToReturn && !recognizedGesture) {
+     //timeElapsedBack = 0;
+     recognizedGesture = true;
      return "return";
    }
- } else timeElapsedBack = 0;
+ } else {
+   recognizedGesture = false;
+   timeElapsedBack = 0;
+ }
 
  //println("startfront");
  if (trackCursor == "vertical") {
@@ -80,9 +92,9 @@ boolean monitorField(int[] depthValues, int[] fieldLimits, String direction) {
  int count = 0;
  int refCount = 0;
  int xSumCursor = 0;
- int depthSumCursor = 0;
+ float depthSumCursor = 0;
  int xSumRef = 0;
- int depthSumRef = 0;
+ float depthSumRef = 0;
 
  for (int y = fieldLimits[2]; y < fieldLimits[3]; y += trackSkip) {
    for (int x = fieldLimits[0]; x < fieldLimits[1]; x += trackSkip) {
@@ -106,6 +118,7 @@ boolean monitorField(int[] depthValues, int[] fieldLimits, String direction) {
        if (y >= fieldLimits[3] - trackSkip) {
          xSumRef += x;
          depthSumRef += depth;
+         //println(depth);
          refCount += 1;
          ellipse(x,y,2,2);
        }
@@ -119,12 +132,15 @@ boolean monitorField(int[] depthValues, int[] fieldLimits, String direction) {
    if (direction == "horizontal") {
      horizontalCursor = xSumCursor / trackArea;
      if (refCount != 0) {
-       verticalRefPoint = xSumRef / refCount;
-       println(xSumRef + "  -  " + refCount);
+       horizontalRefPoint = xSumRef / refCount;
+       //println(horizontalRefPoint + " - " + xSumRef + "  -  " + refCount);
      }
    } else if (direction == "vertical") {
      verticalCursor = depthSumCursor / trackArea;
-     if (refCount != 0) verticalRefPoint = depthSumRef / refCount;
+     if (refCount != 0) {
+       verticalRefPoint = depthSumRef / refCount;
+       //println(verticalRefPoint + " - " + depthSumRef + "  -  " + refCount);
+     }
    }
    return true;
  } else return false;
