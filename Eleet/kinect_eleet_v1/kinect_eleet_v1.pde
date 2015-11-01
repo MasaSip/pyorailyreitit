@@ -18,16 +18,17 @@ void setup() {
 // We'll use a lookup table so that we don't have to repeat the math over and over
 float[] depthLookUp = new float[2048];
 
-float floorDistance = 1.5; // in meters
+float floorDistance = 3.0; // in meters
 float distanceBuffer = 1.0; // in meters
 float timeToConfirm = 70; // amount of times draw is called
 int areaToConfirm = 100; // minimum amount of points
 float timeElapsedLeft;
 float timeElapsedRight;
 float timeElapsedBack; // timeElapsedFront not needed
+int timer = 0;
 
 int trackSkip = 2; // how many points to skip when tracking gestures
-int trackArea = 30; // how big an area does the monitorField average
+int trackArea = 70; // how big an area does the monitorField average
 
 //limits in order: l,r,f,b
 int[] leftFieldLimits;
@@ -37,8 +38,10 @@ int[] backFieldLimits;
 
 float horizontalRefPoint;
 float horizontalCursor;
+float horizontalResult;
 float verticalRefPoint;
 float verticalCursor;
+float verticalResult;
 
 void draw() {
 
@@ -67,18 +70,30 @@ void draw() {
   rect(backFieldLimits[0], backFieldLimits[2],
    backFieldLimits[1]-backFieldLimits[0], backFieldLimits[3]-backFieldLimits[2]);
 
-  String action = track("basic");
+  String action = track("horizontal");
 
-  if (action != "none") println(action);
+  //if (action != "none" && action != "vertical" && action != "horizontal") println(action);
 
   if (action == "confirm") {
 
   } else if (action == "return") {
 
   } else if (action == "horizontal") {
-
+    horizontalResult = horizontalCursor - horizontalRefPoint;
+    timer += 1;
+    if (timer == 100) {
+      timer = 0;
+      println("H.res: " + horizontalResult);
+      println(" - c: " + horizontalCursor + " - r: " + horizontalRefPoint);
+    }
   } else if (action == "vertical") {
-
+    verticalResult = verticalCursor - verticalRefPoint;
+    timer += 1;
+    if (timer == 100) {
+      timer = 0;
+      println("V.res: " + verticalResult);
+      println(" - c: " + verticalCursor + " - r: " + verticalRefPoint);
+    }
   }
 
 }

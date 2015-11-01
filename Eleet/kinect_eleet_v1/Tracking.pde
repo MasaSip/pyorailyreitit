@@ -58,12 +58,16 @@ boolean checkField(int[] depthValues, int[] fieldLimits) {
       // }
       float depth = depthLookUp[depthValues[location]]; //arrayIndexOutOfBoundsException: 307412
 
-      if (depth < floorDistance - distanceBuffer) {
+      if (0.1 < depth && depth < floorDistance - distanceBuffer) {
         areaVisible += 1;
         point(x,y);
-        if (timeElapsedLeft == timeToConfirm && fieldLimits[1] == round(kinect.width/3)) println(depth);
       }
-
+      // timer += 1;
+      // if (timer >= 1000000 && x == 150 && y == 250) {
+      //   timer = 0;
+      //   println(depth);
+      // } else if (timer == 900000) println("---");
+      // if (x == 150 && y == 250) ellipse(x,y,5,5);
     }
   }
   return areaVisible >= areaToConfirm;
@@ -86,7 +90,7 @@ boolean monitorField(int[] depthValues, int[] fieldLimits, String direction) {
      int location = kinect.width*(y-1) + x;
      float depth = depthLookUp[depthValues[location]];
 
-     if (depth < floorDistance - distanceBuffer) {
+     if (0.1 < depth && depth < floorDistance - distanceBuffer) {
 
        point(x,y);
 
@@ -112,12 +116,15 @@ boolean monitorField(int[] depthValues, int[] fieldLimits, String direction) {
  }
 
  if (areaVisible > areaToConfirm) {
-   if (direction == "vertical") {
-     verticalCursor = xSumCursor / trackArea;
-     if (refCount != 0) verticalRefPoint = xSumRef / refCount;
-   } else if (direction == "horizontal") {
-     horizontalCursor = depthSumCursor / trackArea;
-     if (refCount != 0) horizontalRefPoint = depthSumRef / refCount;
+   if (direction == "horizontal") {
+     horizontalCursor = xSumCursor / trackArea;
+     if (refCount != 0) {
+       verticalRefPoint = xSumRef / refCount;
+       println(xSumRef + "  -  " + refCount);
+     }
+   } else if (direction == "vertical") {
+     verticalCursor = depthSumCursor / trackArea;
+     if (refCount != 0) verticalRefPoint = depthSumRef / refCount;
    }
    return true;
  } else return false;
