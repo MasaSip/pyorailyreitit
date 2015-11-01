@@ -1,23 +1,4 @@
-9.7  //reitin pituus
-tarmac-low  //tyyppi-keskimääräinenKorkeus (metreissä)
-tarmac-low-sea
-gravel-low-sea
-gravel-low-sea
-gravel-up
-tarmac-high
-gravel-high
-tarmac-high
-tarmac-down
-tarmac-low
-
-7.4  //toinen reitti
-tarmac-low
-tarmac-up
-gravel-high
-gravel-high
-gravel-high
-tarmac-down
-gravel-low
-tarmac-low-sea
-tarmac-low-sea
-tarmac-low
+ArrayList<String>{
+  String[]{"tarmac-low","tarmac-low-sea","gravel-low-sea","gravel-low-sea","gravel-up","tarmac-high","gravel-high","tarmac-high","tarmac-down","tarmac-low","9.7"},
+  String[]{"tarmac-low","tarmac-up","gravel-high","gravel-high","gravel-high","tarmac-down","gravel-low","tarmac-low-sea","tarmac-low-sea","tarmac-low","7.4"}
+}
