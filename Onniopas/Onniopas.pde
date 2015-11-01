@@ -35,8 +35,8 @@ void basicSetup() {
   slider = new Slider("horizontal", 20, 50, 100, 390, accentColor);
 
   // get from backend (road types)
-  //route = loadRoutes();
-  route = new String[]{"tarmac", "tarmac", "tarmac", "tarmac", "gravel", "gravel", "gravel", "tarmac", "tarmac", "tarmac"};
+  route = loadStrings("routes.txt");
+  //route = new String[]{"tarmac", "tarmac", "tarmac", "tarmac", "gravel", "gravel", "gravel", "tarmac", "tarmac", "tarmac"};
 
   // list for saving road images
   images = new PImage[10];
