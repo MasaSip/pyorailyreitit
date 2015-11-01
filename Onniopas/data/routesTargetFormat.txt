@@ -1,0 +1,25 @@
+9.7  //reitin pituus
+tarmac-05  //tyyppi-keskimääräinenKorkeus (metreissä)
+tarmac-12
+gravel-10
+gravel-15
+gravel-16
+tarmac-11
+gravel-14
+tarmac-09
+tarmac-03
+tarmac-05
+
+7.4  //toinen reitti
+tarmac-05
+tarmac-12
+gravel-10
+gravel-15
+gravel-16
+tarmac-11
+gravel-14
+tarmac-09
+tarmac-03
+tarmac-05
+
+//jne.
