@@ -23,6 +23,8 @@ float route2length;
 int chosenRoute;
 boolean newRoutes;
 
+GeoPointSet crossings;
+
 void setup() {
   size(1280, 720);
   basicSetup();
@@ -42,6 +44,9 @@ void basicSetup() {
   
   // Slider
   slider = new Slider("horizontal", 20, 50, 60, 390, 60, 1200, accentColor);
+
+  crossings = loadPointSet("Espoo_risteykset.kml");
+  // setupGeoTest();
 
   // get from backend (road types)
 
@@ -68,6 +73,7 @@ void createViews() {
 }
 
 void draw() {
+//  drawGeoTest();
   drawViews();
 }
 
