@@ -1,4 +1,4 @@
-tarmac-05  //tyyppi-keskimääräinenKorkeus (metreissä)
+tarmac-05
 tarmac-12
 gravel-10
 gravel-15
@@ -8,10 +8,10 @@ gravel-14
 tarmac-09
 tarmac-03
 tarmac-05
-Lauttasaarihupailu  //reitin nimi
-9.7  //reitin pituus
+Lauttasaarihupailu
+9.7
 
-tarmac-05  //toinen reitti
+tarmac-05
 tarmac-12
 gravel-10
 gravel-15
@@ -23,5 +23,3 @@ tarmac-03
 tarmac-05
 Biitsikierros
 7.4
-
-//jne.

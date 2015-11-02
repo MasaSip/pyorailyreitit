@@ -12,5 +12,8 @@
 // kaikista mahdollista myös olla ...-sea
 
 String[] getRoutes(float targetLength) {
+
+  String[] allRoutes = loadStrings(routes.txt);
+
   
 }
