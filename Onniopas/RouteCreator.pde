@@ -1,17 +1,3 @@
-// getRoutes
-// parametrina float
-// tulos: ArrayList, jossa 2x String[],
-//
-// tarmac-low
-// tarmac-high
-// tarmac-up
-// tarmac-down
-//
-// samat gravelille
-//
-// kaikista mahdollista myös olla ...-sea
-
-//ArrayList<String[]> result;
 ArrayList<String[]> result = new ArrayList<String[]>();
 
 String numbers = "1234567890";
@@ -25,24 +11,16 @@ int highestPoint = 0;
 int previousHeight = 0;
 int seaLevel = 3;
 
-ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN String[] !!!
+ArrayList<String[]> getRoutes(float targetLength) {
 
   String[] allRoutes = loadStrings("routes.txt");
-
-  //for (int i = 0; i < allRoutes.length; i++) {
-  //  println(allRoutes[i]);
-  //}
 
   for (int i = 0; i < allRoutes.length; i++) { //etsitään kaksi lähintä reittiä
     for (int j = 0; j < 10; j++) {
 
-      //println(allRoutes[i]);
-
       if (allRoutes[i].length() != 0 && allRoutes[i].charAt(0) == numbers.charAt(j)) {
 
         float thisLength = new Float(allRoutes[i]);
-
-        //println(i);
 
         if (abs(thisLength - targetLength) < abs(closestRoute1Length - targetLength)) {
           closestRoute2Index = closestRoute1Index;
@@ -69,24 +47,24 @@ ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN S
     if (height > highestPoint) highestPoint = height;
   }
 
-  for (int i = closestRoute2Index + 1; i < closestRoute2Index + 10; i++) { //kasataan palautettavat reitit
+  for (int i = closestRoute2Index + 1; i < closestRoute2Index + 10; i++) {
 
     String[] parts = split(allRoutes[i], '-');
 
-    int height = int(parts[1]); //toimiiko??
+    int height = int(parts[1]);
 
     if (height > highestPoint) highestPoint = height;
   }
 
 
-  for (int i = 0; i < 10; i++) { //kasataan palautettavat reitit
+  for (int i = 0; i < 10; i++) { //kasataan palautettava reitti 1
 
     String[] parts = split(allRoutes[i+closestRoute1Index+1], '-');
 
     route1String[i] = parts[0];
     route1String[i] += "-";
 
-    int height = int(parts[1]); //toimiiko??
+    int height = int(parts[1]);
 
     if (height > highestPoint/2) {
       if (previousHeight > highestPoint/2) route1String[i] += "high";
@@ -99,18 +77,14 @@ ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN S
     previousHeight = height;
   }
 
-  //println(route2String);
-
-  for (int i = 0; i < 10; i++) { //kasataan palautettavat reitit
+  for (int i = 0; i < 10; i++) { //kasataan palautettava reitti 2
 
     String[] parts = split(allRoutes[i+closestRoute2Index+1], '-');
 
     route2String[i] = parts[0];
     route2String[i] += "-";
 
-    //println(route2String[i]);
-
-    int height = int(parts[1]); //toimiiko??
+    int height = int(parts[1]);
 
     if (height > highestPoint/2) {
       if (previousHeight > highestPoint/2) route2String[i] += "high";
@@ -125,12 +99,6 @@ ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN S
 
   closestRoute1Length = new Float(allRoutes[closestRoute1Index]);
   closestRoute2Length = new Float(allRoutes[closestRoute2Index]);
-
-  //route1String = append(route1String, allRoutes[closestRoute1Index+11]);
-  //route1String = append(route1String, str(closestRoute1Length));
-
-  //route2String = append(route2String, allRoutes[closestRoute2Index+11]);
-  //route2String = append(route2String, str(closestRoute2Length));
 
   route1String[10] = allRoutes[closestRoute1Index+11];
   route1String[11] = str(closestRoute1Length);
