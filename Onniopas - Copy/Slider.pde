@@ -37,12 +37,9 @@ class Slider {
     rect(x, y, w, h);
   }
   
-  float getSliderValue(float minValue, float maxValue) {
+  float getSliderValue(float minValue, float maxValue) { //3, 15
+    float value = 0.0;
     float values = maxValue - minValue;
-    if ((x - a) != 0) {
-      float relation = (b - a) / (x - a);
-      return values / relation + minValue;
-    }
-    return minValue;
+    return value;
   }
 }  
