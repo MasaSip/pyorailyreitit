@@ -289,8 +289,8 @@ void returnEvent() {
 void moveSlider(boolean withKinect) {
   if (withKinect) {
     // Return values from 0 to 100
-    //float xPos = kinect.getHorizontalScaled();
-    //slider.slide(xPos*width/100);
+    float xPos = kinectTracker.getHorizontalScaled();
+    slider.slide(xPos*width/100);
   } else {
     slider.slide(mouseX);
   }
