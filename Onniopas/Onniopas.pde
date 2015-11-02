@@ -24,9 +24,12 @@ float route2length;
 int chosenRoute;
 boolean newRoutes;
 
+KinectTracker kinectTracker;
+
 void setup() {
   size(1280, 720);
   basicSetup();
+  kinectSetup();
   createViews();
 }
 
@@ -52,6 +55,10 @@ void basicSetup() {
   chosenRoute = 0;
   newRoutes = true;
 }
+void kinectSetup() {
+  kinectTracker = new KinectTracker();
+}
+
 
 void createViews() {
   // First view: start view with title
@@ -117,15 +124,11 @@ void drawViews() {
   else if (currentView == 2) {
     if (prevView < currentView && newRoutes == true) {
       // get two closest routes from backend
-      
-      //POISTA KOMMENTEISTA JA OTA KÄYTTÖÖN
       routes = getRoutes(slider.getSliderValue(3, 15));
-      //POISTA SEURAAVAT 2 RIVIÄ!!!
-      //routes.add(new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "5"});
-      //routes.add(new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "6"});
-      //POISTO LOPPUU!!
+      
       
       println("Valittu reittipituus: " + slider.getSliderValue(3, 15));
+
       // save route images to images list
       route1img = getRouteImages(routes.get(0));
       route2img = getRouteImages(routes.get(1));
@@ -261,6 +264,23 @@ void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLe
   text(routeName + ", " + routeLength, 70, 180+whichRoute*200);
 }
 
+void listenKinect() {
+  String gesture;
+
+  if (currentView == 1) {
+    gesture = kinectTracker.listenKinectGestures("horizontal");
+  } else if (currentView == 2) {
+    gesture = kinectTracker.listenKinectGestures("vertical");
+  } else {
+    gesture = kinectTracker.listenKinectGestures("basic");
+  }
+
+  if (gesture.equals("confirm")) confirmEvent();
+  else if (gesture.equals("return")) returnEvent();
+  else if (gesture.equals("vertcal")) moveSelector(true);
+  else if (gesture.equals("horizontal")) moveSlider(true);
+}
+
 void keyPressed() {
   // confirm: wave right or left arm
   if (keyCode == CONTROL) {
@@ -274,7 +294,7 @@ void keyPressed() {
 
   // slide: move hand in front of the user
   else if (keyCode == SHIFT) {
-    moveSlider();
+    moveSlider(false);
   }
 }
 
@@ -286,6 +306,7 @@ void confirmEvent() {
   }
 }
 
+
 void returnEvent() {
   if (currentView <= 3 && currentView > 0) {
     prevView = currentView;
@@ -294,10 +315,19 @@ void returnEvent() {
   }
 }
 
-void moveSelector() {
-  
+void moveSelector(boolean withKinect) {
+  if (withKinect) chosenRoute = int(kinectTracker.getVerticalScaled());
+  else if (mouseY < height/2) chosenRoute = -1;
+  else chosenRoute = 1;
 }
 
-void moveSlider() {
-  slider.slide(mouseX);
+void moveSlider(boolean withKinect) {
+  if (withKinect) {
+    // Return values from 0 to 100
+    float xPos = kinectTracker.getHorizontalScaled();
+    println(xPos*width/100);
+    slider.slide(xPos*width/100);
+  } else {
+    slider.slide(mouseX);
+  }
 }
