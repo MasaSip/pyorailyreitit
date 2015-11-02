@@ -1,19 +1,42 @@
 int targetAmountOfPieces = 10;
 
+String[] routeFilelist = {// "smt-otsolahdenRanta-westendinMaki.json",
+  "11km, westendin rantalenkki",
+  "12km, laahalahden ympari",
+  "3km, otahallin ja rannan kautta",
+  "5km, tapiolan kirkolla kaynti",
+  "6km, otaniemen ympari",
+  "8km, keilalahden ympari",
+  "9km, villa elfvikille"};
+
 void loadRoutes() {
-  
-  String[] pieceTypes;
   
   String savingPath = "../Onniopas/data/routes.txt";
 
-  Track otaniemiOtsolahtiWestend = new Track("data/smt-otsolahdenRanta-westendinMaki.json");
+  ArrayList<String[]> routeList = new ArrayList<String[]>();
+  int outputLines = 0;
 
-  pieceTypes = calculateTrackPieceTypes(otaniemiOtsolahtiWestend, targetAmountOfPieces);
+  for (String filename : routeFilelist) {
+    Track t = new Track("data/"+filename);
+
+    String[] pieceTypes = calculateTrackPieceTypes(t, targetAmountOfPieces);
   
-  int[] pieceHeigths = calculateTrackPieceHeights(otaniemiOtsolahtiWestend, targetAmountOfPieces);
-  
-  saveRoutes(savingPath, otaniemiOtsolahtiWestend.getTotalLength(), pieceTypes, pieceHeigths);
-  
+    int[] pieceHeigths = calculateTrackPieceHeights(t, targetAmountOfPieces);
+    
+    String[] nameParts = filename.split(", "); 
+    String[] output = serializeRoute(t.getTotalLength(), pieceTypes, pieceHeigths, nameParts[1]);
+    outputLines += output.length;
+    routeList.add(output);
+  }
+  String[] combined = new String[outputLines];
+  int i=0;
+  for (String[] route : routeList) {
+    for (String line : route) {
+      combined[i] = line;
+      i++;
+    }
+  }
+  saveStrings(savingPath, combined);
 }
 
 String[] calculateTrackPieceTypes(Track track, int targetAmountOfPieces) {
@@ -119,14 +142,14 @@ void saveArrayList(ArrayList<String> arrayList) {
   saveStrings("debug.txt", list);
 }
 
-void saveRoutes(String filePath, float length, String[] trackPieces, int[] pieceHeigths){
-  String[] routes = new String[targetAmountOfPieces+3];
-  routes[0] = str(round(length/100)/10.0f);
+String[] serializeRoute(float length, String[] trackPieces, int[] pieceHeigths, String name){
+  String[] route = new String[targetAmountOfPieces+3];
+  route[0] = str(round(length/100)/10.0f);
   for (int i =0; i < trackPieces.length; i++) {
-    routes[1+i] = trackPieces[i] + "-" + pieceHeigths[i];
+    route[1+i] = trackPieces[i] + "-" + pieceHeigths[i];
   }
-  routes[trackPieces.length + 1] = "Marathon-reitti";
-  routes[trackPieces.length + 2] = " ";
+  route[trackPieces.length + 1] = name;
+  route[trackPieces.length + 2] = " ";
 
-  saveStrings(filePath, routes);
+  return route;
 }
