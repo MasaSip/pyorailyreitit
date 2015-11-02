@@ -27,6 +27,7 @@ void setup() {
   size(1280, 720);
   basicSetup();
   createViews();
+  kinect.kinectSetup();
 }
 
 void basicSetup() {
@@ -278,6 +279,6 @@ void moveSlider(boolean withKinect) {
     //float xPos = kinect.getHorizontalScaled();
     //slider.slide(xPos*width/100);
   } else {
-    slider.slide(mouseX);  
+    slider.slide(mouseX);
   }
 }
