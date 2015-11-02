@@ -74,7 +74,7 @@ void draw() {
   rect(backFieldLimits[0], backFieldLimits[2],
    backFieldLimits[1]-backFieldLimits[0], backFieldLimits[3]-backFieldLimits[2]);
 
-  String action = track("horizontal");
+  String action = track("vertical");
 
   if (action != "none" && action != "vertical" && action != "horizontal") println(action);
 
