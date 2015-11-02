@@ -240,11 +240,11 @@ void listenKinect() {
   String gesture;
 
   if (currentView == 1) {
-    gesture = listenKinectGestures("horizontal");
+    gesture = kinectTracker.listenKinectGestures("horizontal");
   } else if (currentView == 2) {
-    gesture = listenKinectGestures("vertical");
+    gesture = kinectTracker.listenKinectGestures("vertical");
   } else {
-    gesture = listenKinectGestures("basic");
+    gesture = kinectTracker.listenKinectGestures("basic");
   }
 
   if (gesture.equals("confirm")) confirmEvent();
@@ -256,26 +256,33 @@ void listenKinect() {
 void keyPressed() {
   // confirm: wave right or left arm
   if (keyCode == CONTROL) {
-    if (currentView >= 0 && currentView < 3) {
-      prevView = currentView;
-      currentView++;
-      println("Näkymä " + currentView);
-    }
+    confirmEvent();
   }
-
 
   // return: step backwards
   else if (keyCode == ALT) {
-    if (currentView <= 3 && currentView > 0) {
-      prevView = currentView;
-      currentView--;
-      println("Näkymä " + currentView);
-    }
+    returnEvent();
   }
 
   // slide: move hand in front of the user
   else if (keyCode == SHIFT) {
     moveSlider(false);
+  }
+}
+
+void confirmEvent() {
+  if (currentView >= 0 && currentView < 3) {
+    prevView = currentView;
+    currentView++;
+    println("Näkymä " + currentView);
+  }
+}
+
+void returnEvent() {
+  if (currentView <= 3 && currentView > 0) {
+    prevView = currentView;
+    currentView--;
+    println("Näkymä " + currentView);
   }
 }
 
