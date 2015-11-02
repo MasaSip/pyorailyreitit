@@ -1,0 +1,4 @@
+ArrayList<String>{
+  String[]{"tarmac-low","tarmac-low-sea","gravel-low-sea","gravel-low-sea","gravel-up","tarmac-high","gravel-high","tarmac-high","tarmac-down","tarmac-low","Lauttasaarihupailu","9.7"},
+  String[]{"tarmac-low","tarmac-up","gravel-high","gravel-high","gravel-high","tarmac-down","gravel-low","tarmac-low-sea","tarmac-low-sea","tarmac-low","Biitsikierros","7.4"}
+}

@@ -1,17 +1,30 @@
 class TrackSegment implements GeoDrawable {
   
-  ArrayList<GeoPoint> coordinates;
+  ArrayList<Coordinate> coordinates;
   float length;
   String type;
+  float averageHeight;
   
-  TrackSegment(ArrayList<GeoPoint> coordinates, float length, String type){
+  TrackSegment(ArrayList<Coordinate> coordinates, float length, String type){
     this.coordinates = coordinates;
     this.length = length;
     this.type = type;
+    calculateAverageHeight();
   } 
 
   float getLength() {
     return this.length;
+  }
+
+  float getAverageHeight() {
+    return this.averageHeight;
+  }
+
+  void calculateAverageHeight() {
+    this.averageHeight = 0;
+    for (int i=0; i < coordinates.size(); i++) {
+      this.averageHeight += coordinates.get(i).height/coordinates.size();
+    }
   }
 
   String getType() {
