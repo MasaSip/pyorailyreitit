@@ -39,7 +39,7 @@ void basicSetup() {
   accentColor = color(247,148,29,1);
   fontColor = color(255,255,255,1);
   rectColor = color(140, 304, 100, 1);
-  
+
   // Slider
   slider = new Slider("horizontal", 20, 50, 60, 390, 60, 1200, accentColor);
 
@@ -47,7 +47,7 @@ void basicSetup() {
 
   //route = loadRoutes();
   route = new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "5"};
-  
+
   chosenRoute = 0;
   newRoutes = true;
 }
@@ -55,28 +55,29 @@ void basicSetup() {
 void createViews() {
   // First view: start view with title
   views[0] = new View(0, bgColor1, loadImage("bike.png"), "NNIOPAS", "Paina CTRL siirtyäksesi valitsemaan reittejä.");
-  
+
   // Second view: length of the route
   views[1] = new View(0, bgColor1, "Reitin pituus", "Paina CTRL nähdäksesi reitti.");
-   
+
   // Third view: visualise the (three) best route(s)
   views[2] = new View(2, bgColor1, "Reitti");
-  
+
   // show chosen route on the map
   views[3] = new View(3, bgColor1, "Valittu reitti kartalla");
-  
+
 }
 
 void draw() {
   drawViews();
+  listenKinect();
 }
 
 void drawViews() {
-  
+
   // background
   background(views[1].clr);
   //drawBackground();
-  
+
   if (currentView == 0) {
     // texts
     PFont font = createFont("calibri.ttf", 120);
@@ -86,15 +87,15 @@ void drawViews() {
     PFont font1 = createFont("calibri.ttf", 30);
     textFont(font1);
     text(views[0].text, 400, 600);
-    
+
     // bike
     rotate(PI/-4.0);
     image(views[0].img, 45, 370);
   }
-  
+
   else if (currentView == 1) {
     newRoutes = true;
-    
+
     // texts
     PFont font2 = createFont("calibri.ttf", 30);
     textFont(font2);
@@ -104,7 +105,7 @@ void drawViews() {
     textFont(font3);
     fill(255,255,255);
     text(views[1].text, 400, 600);
-    
+
     noStroke();
     fill(230,148,29);
     rect(50, 400, 1180, 30);
@@ -112,7 +113,7 @@ void drawViews() {
     fill(247,110,29);
     slider.drawSlider();
   }
-  
+
   else if (currentView == 2) {
     if (prevView < currentView && newRoutes == true) {
       // get two closest routes from backend
@@ -124,32 +125,32 @@ void drawViews() {
       route2img = getRouteImages();
       newRoutes = false;
     }
-    
+
     // texts
     PFont font2 = createFont("calibri.ttf", 30);
     textFont(font2);
     fill(255,255,255);
     text(views[2].title, 10, 60);
-    
+
     // routes
     drawRoute(route1img, 1, getRouteName(route), getRouteLength(route));
     drawRoute(route2img, 2, getRouteName(route), getRouteLength(route));
   }
-  
+
   else if (currentView == 3) {
     // background
     background(views[3].clr);
-    
+
     // texts
     PFont font2 = createFont("calibri.ttf", 30);
     textFont(font2);
     fill(255,255,255);
     text(views[3].title, 10, 60);
-    
+
     fill(15, 180, 150);
     rect(200, 120, 870, 500);
-  }  
-  
+  }
+
 }
 
 PImage[] getRouteImages() {
@@ -228,6 +229,23 @@ void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLe
   text(routeName + ", " + routeLength, 70, 180+whichRoute*200);
 }
 
+void listenKinect(); {
+  String gesture;
+
+  if (currentView == 1) {
+    gesture = listenKinectGestures("horizontal");
+  } else if (currentView == 2) {
+    gesture = listenKinectGestures("vertical");
+  } else {
+    gesture = listenKinectGestures("basic");
+  }
+
+  if (gesture.equals("confirm")) confirmEvent();
+  else if (gesture.equals("return")) returnEvent();
+  else if (gesture.equals("vertcal")) moveSelector();
+  else if (gesture.equals("horizontal")) moveSlider();
+}
+
 void keyPressed() {
   // confirm: wave right or left arm
   if (keyCode == CONTROL) {
@@ -237,7 +255,7 @@ void keyPressed() {
       println("Näkymä " + currentView);
     }
   }
-  
+
   // return: step backwards
   else if (keyCode == ALT) {
     if (currentView <= 3 && currentView > 0) {
@@ -246,7 +264,7 @@ void keyPressed() {
       println("Näkymä " + currentView);
     }
   }
-  
+
   // slide: move hand in front of the user
   else if (keyCode == SHIFT) {
     moveSlider();
