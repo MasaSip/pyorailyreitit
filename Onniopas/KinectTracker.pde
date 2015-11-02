@@ -159,7 +159,7 @@ class KinectTracker {
 
         if (0.1 < depth && depth < floorDistance - distanceBuffer) {
           areaVisible += 1;
-          point(x,y);
+          //point(x,y);
         }
         // timer += 1;
         // if (timer >= 1000000 && x == 150 && y == 250) {
@@ -191,7 +191,7 @@ class KinectTracker {
 
        if (0.1 < depth && depth < floorDistance - distanceBuffer) {
 
-         point(x,y);
+         //point(x,y);
 
          areaVisible += 1;
 
@@ -199,7 +199,7 @@ class KinectTracker {
            xSumCursor += x;
            depthSumCursor += depth;
            count += 1;
-           ellipse(x,y,2,2);
+           //ellipse(x,y,2,2);
          }
 
          if (y >= fieldLimits[3] - trackSkip) {
@@ -207,7 +207,7 @@ class KinectTracker {
            depthSumRef += depth;
            //println(depth);
            refCount += 1;
-           ellipse(x,y,2,2);
+           //ellipse(x,y,2,2);
          }
 
        }
