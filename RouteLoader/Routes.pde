@@ -1,14 +1,18 @@
-String[] loadRoutes() {
+int targetAmountOfPieces = 10;
+
+void loadRoutes() {
   
-  String[] trackPieces;
-  int targetAmountOfPieces = 10;
+  String[] pieceTypes;
+  
+  String savingPath = "../Onniopas/data/routes.txt";
 
   Track otaniemiOtsolahtiWestend = new Track("data/smt-otsolahdenRanta-westendinMaki.json");
 
-  trackPieces = calculateTrackPieceTypes(otaniemiOtsolahtiWestend, targetAmountOfPieces);
+  pieceTypes = calculateTrackPieceTypes(otaniemiOtsolahtiWestend, targetAmountOfPieces);
   
-  println(calculateTrackPieceHeights(otaniemiOtsolahtiWestend, targetAmountOfPieces));
-  return trackPieces;
+  int[] pieceHeigths = calculateTrackPieceHeights(otaniemiOtsolahtiWestend, targetAmountOfPieces);
+  
+  saveRoutes(savingPath, otaniemiOtsolahtiWestend.getTotalLength(), pieceTypes, pieceHeigths);
   
 }
 
@@ -63,7 +67,7 @@ String[] calculateTrackPieceTypes(Track track, int targetAmountOfPieces) {
   /*
   Piece heights are the average heights of track on piece
   */
-float[] calculateTrackPieceHeights(Track track, int targetAmountOfPieces) {
+int[] calculateTrackPieceHeights(Track track, int targetAmountOfPieces) {
 
   ArrayList<String> debugList = new ArrayList<String>();
   float unDevidedLength = 0;
@@ -104,7 +108,7 @@ float[] calculateTrackPieceHeights(Track track, int targetAmountOfPieces) {
   }
 
   saveArrayList(debugList);
-  return pieceHeigths;
+  return int(pieceHeigths);
 }
 
 void saveArrayList(ArrayList<String> arrayList) {
@@ -113,4 +117,16 @@ void saveArrayList(ArrayList<String> arrayList) {
     list[i] = arrayList.get(i);
   }
   saveStrings("debug.txt", list);
+}
+
+void saveRoutes(String filePath, float length, String[] trackPieces, int[] pieceHeigths){
+  String[] routes = new String[targetAmountOfPieces+3];
+  routes[0] = str(round(length/100)/10.0f);
+  for (int i =0; i < trackPieces.length; i++) {
+    routes[1+i] = trackPieces[i] + "-" + pieceHeigths[i];
+  }
+  routes[trackPieces.length + 1] = "Marathon-reitti";
+  routes[trackPieces.length + 2] = " ";
+
+  saveStrings(filePath, routes);
 }

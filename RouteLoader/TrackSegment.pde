@@ -10,7 +10,6 @@ class TrackSegment {
     this.length = length;
     this.type = type;
     calculateAverageHeight();
-    println(this.averageHeight);
   } 
 
   float getLength() {
