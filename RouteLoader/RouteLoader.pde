@@ -3,11 +3,13 @@ GeoPointSet crossings;
 void setup() {
   size(1280,720);
     crossings = loadPointSet("Espoo_risteykset.kml");
-    setupGeoTest();
+    // setupGeoTest();
 
   loadRoutes();
+  noLoop();
 }
 
 void draw() {
-  drawGeoTest();
+  println("Valmis");
+  // drawGeoTest();
 }
