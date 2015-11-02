@@ -229,7 +229,7 @@ void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLe
   text(routeName + ", " + routeLength, 70, 180+whichRoute*200);
 }
 
-void listenKinect(); {
+void listenKinect() {
   String gesture;
 
   if (currentView == 1) {
@@ -242,8 +242,8 @@ void listenKinect(); {
 
   if (gesture.equals("confirm")) confirmEvent();
   else if (gesture.equals("return")) returnEvent();
-  else if (gesture.equals("vertcal")) moveSelector();
-  else if (gesture.equals("horizontal")) moveSlider();
+  else if (gesture.equals("vertcal")); //moveSelector(true);
+  else if (gesture.equals("horizontal")) moveSlider(true);
 }
 
 void keyPressed() {
@@ -256,6 +256,7 @@ void keyPressed() {
     }
   }
 
+
   // return: step backwards
   else if (keyCode == ALT) {
     if (currentView <= 3 && currentView > 0) {
@@ -267,10 +268,16 @@ void keyPressed() {
 
   // slide: move hand in front of the user
   else if (keyCode == SHIFT) {
-    moveSlider();
+    moveSlider(false);
   }
 }
 
-void moveSlider() {
-  slider.slide(mouseX);
+void moveSlider(boolean withKinect) {
+  if (withKinect) {
+    // Return values from 0 to 100
+    //float xPos = kinect.getHorizontalScaled();
+    //slider.slide(xPos*width/100);
+  } else {
+    slider.slide(mouseX);  
+  }
 }
