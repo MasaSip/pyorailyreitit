@@ -264,7 +264,6 @@ void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLe
   text(routeName + ", " + routeLength, 70, 180+whichRoute*200);
 }
 
-<<<<<<< HEAD
 void listenKinect() {
   String gesture;
 
@@ -282,8 +281,6 @@ void listenKinect() {
   else if (gesture.equals("horizontal")) moveSlider(true);
 }
 
-=======
->>>>>>> master
 void keyPressed() {
   // confirm: wave right or left arm
   if (keyCode == CONTROL) {
@@ -309,17 +306,7 @@ void confirmEvent() {
   }
 }
 
-<<<<<<< HEAD
-=======
-void confirmEvent() {
-  if (currentView >= 0 && currentView < 3) {
-    prevView = currentView;
-    currentView++;
-    println("Näkymä " + currentView);
-  }
-}
 
->>>>>>> master
 void returnEvent() {
   if (currentView <= 3 && currentView > 0) {
     prevView = currentView;
@@ -328,7 +315,6 @@ void returnEvent() {
   }
 }
 
-<<<<<<< HEAD
 void moveSelector(boolean withKinect) {
   if (withKinect) chosenRoute = int(kinectTracker.getVerticalScaled());
   else if (mouseY < height/2) chosenRoute = -1;
@@ -345,12 +331,3 @@ void moveSlider(boolean withKinect) {
     slider.slide(mouseX);
   }
 }
-=======
-void moveSelector() {
-  
-}
-
-void moveSlider() {
-  slider.slide(mouseX);
-}
->>>>>>> master
