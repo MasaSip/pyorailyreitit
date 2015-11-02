@@ -55,7 +55,7 @@ class KinectTracker {
 
   String listenKinectGestures(String monitor) {
 
-    String action = track("vertical");
+    String action = track(monitor);
 
     if (action == "horizontal") {
       horizontalResult = horizontalCursor - (kinect.width/2);
