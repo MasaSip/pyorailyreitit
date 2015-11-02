@@ -29,6 +29,7 @@ void setup() {
   size(1280, 720);
   basicSetup();
   createViews();
+  noLoop();
 }
 
 void basicSetup() {
@@ -257,6 +258,7 @@ void keyPressed() {
   else if (keyCode == SHIFT) {
     moveSlider();
   }
+  redraw();
 }
 
 void moveSlider() {

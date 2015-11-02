@@ -6,11 +6,17 @@ class GeoPoint implements Comparable<GeoPoint> {
   int compareTo(GeoPoint p) {
     return Double.compare(this.longitude,p.longitude);
   }
+  String toString() {
+    return Double.toString(longitude)+":"+Double.toString(latitude); 
+  }
 }
 
 class Point {
   float x, y;
   Point(float x, float y) { this.x = x; this.y = y; }
+  String toString() {
+    return str(x)+":"+str(y); 
+  }
 }
 
 interface GeoDrawable {
@@ -18,12 +24,18 @@ interface GeoDrawable {
 }
 
 class GeoPointMapper {
-  double originLongitude, originLatitude;
+  double originLongitude, originLatitude; //<>//
+  int offsetx, offsety;
   float scale;
-  void setupMapper(int width, int height, double minLongitude, double maxLongitude, double minLatitude, double maxLatitude) {
+  GeoPointMapper(Track t, int width, int height) {
+    double minLongitude = t.minLongitude;
+    double maxLongitude = t.maxLongitude;
+    double minLatitude = t.minLatitude;
+    double maxLatitude = t.maxLatitude;
     originLongitude = (minLongitude+maxLongitude)/2;
     originLatitude = (minLatitude+maxLatitude)/2;
-    double longitudeRange = Math.cos(originLatitude)*(maxLongitude-minLongitude);
+    
+    double longitudeRange = Math.cos(originLatitude*(Math.PI/180))*(maxLongitude-minLongitude); //<>//
     double latitudeRange = maxLatitude-minLatitude;
     float aspect = (float)(longitudeRange/latitudeRange);
     float viewAspect = ((float)width)/height;
@@ -38,17 +50,25 @@ class GeoPointMapper {
   Point map(GeoPoint g) {
     double deltaLongitude = g.longitude - originLongitude;
     double deltaLatitude = g.latitude - originLatitude;
-    Point p = new Point((float)(scale*deltaLongitude*Math.cos(originLatitude)),(float)(scale*deltaLatitude));
+    Point p = new Point(offsetx+(float)(scale*deltaLongitude*Math.cos(originLatitude*(Math.PI/180))),offsety-(float)(scale*deltaLatitude));
     return p;
   }
 }
 
 
-class GeoPointSet {
+class GeoPointSet implements GeoDrawable {
   java.util.TreeSet<GeoPoint> points;
   GeoPointSet() {
     points = new java.util.TreeSet<GeoPoint>(); 
   }
+  void drawGeo(GeoPointMapper mapper) {
+     stroke(#ff0000);
+     fill(#ff0000);
+     for (GeoPoint g : points) {
+       Point p = mapper.map(g);
+       ellipse(p.x,p.y,5,5);
+     }
+  }  
 }
 
 GeoPointSet loadPointSet(String filename) {
@@ -72,14 +92,13 @@ GeoPointMapper mapper;
 
 void setupGeoTest() {
   testTrack = new Track("data/smt-otsolahdenRanta-westendinMaki.json");
-  mapper = geoPointMapperFromTrack(testTrack,1280,720);
+  mapper = new GeoPointMapper(testTrack,1280,720);
+  mapper.offsetx=1280/2;
+  mapper.offsety=720/2;
 }
 
 void drawGeoTest() {
   background(#ffffff);
-  fill(#000000);
-  pushMatrix();
-  translate(1280/2,720/2);
   testTrack.drawGeo(mapper);
-  popMatrix();
+  crossings.drawGeo(mapper);
 }

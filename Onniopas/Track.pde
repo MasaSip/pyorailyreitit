@@ -33,6 +33,7 @@ class Track implements GeoDrawable {
         lengthWithKnownPavement += length;
       }
     }
+    computeMinMax();    
   }
 
   ArrayList<TrackSegment> getTrackSegments() {
@@ -52,25 +53,25 @@ class Track implements GeoDrawable {
       s.drawGeo(mapper);
     }
   }
-}
-
-GeoPointMapper geoPointMapperFromTrack(Track t, int width, int height) {
-   double maxLatitude = Double.NEGATIVE_INFINITY;
-   double minLatitude = Double.POSITIVE_INFINITY;
-   double maxLongitude = Double.NEGATIVE_INFINITY;
-   double minLongitude = Double.POSITIVE_INFINITY;
-   ArrayList<TrackSegment> trackSegments = t.trackSegments;
-   for (int i=0; i < trackSegments.size(); i++) {
-     ArrayList<GeoPoint> coordinates = trackSegments.get(i).coordinates;
-     for (int j=0; j<coordinates.size(); j++) {
-       GeoPoint p = coordinates.get(j);
-       if (p.longitude > maxLongitude) maxLongitude = p.longitude;
-       if (p.longitude < minLongitude) minLongitude = p.longitude;
-       if (p.latitude > maxLatitude) maxLatitude = p.latitude;
-       if (p.latitude < minLatitude) minLatitude = p.latitude;
+  double minLatitude, maxLatitude, minLongitude, maxLongitude;
+  void computeMinMax() {
+     double maxLatitude = Double.NEGATIVE_INFINITY;
+     double minLatitude = Double.POSITIVE_INFINITY;
+     double maxLongitude = Double.NEGATIVE_INFINITY;
+     double minLongitude = Double.POSITIVE_INFINITY;
+     for (int i=0; i < trackSegments.size(); i++) {
+       ArrayList<GeoPoint> coordinates = trackSegments.get(i).coordinates;
+       for (int j=0; j<coordinates.size(); j++) {
+         GeoPoint p = coordinates.get(j);
+         if (p.longitude > maxLongitude) maxLongitude = p.longitude;
+         if (p.longitude < minLongitude) minLongitude = p.longitude;
+         if (p.latitude > maxLatitude) maxLatitude = p.latitude;
+         if (p.latitude < minLatitude) minLatitude = p.latitude;
+       }
      }
-   }
-   GeoPointMapper m = new GeoPointMapper();
-   m.setupMapper(width,height,minLongitude,maxLongitude,minLatitude,maxLatitude);
-   return m;
+     this.maxLatitude = maxLatitude;
+     this.minLatitude = minLatitude;
+     this.maxLongitude = maxLongitude;
+     this.minLongitude = minLongitude;
+  }
 }
