@@ -3,11 +3,11 @@
 */
 
 class Slider {
-  
+
   String dir;
   color clr;
   float w, h, x, y, a, b;
-  
+
   Slider(String dir, float w, float h, float x, float y, float a, float b, color clr) {
     this.dir = dir;
     this.w = w; //width
@@ -18,10 +18,10 @@ class Slider {
     this.b = b; //max pos
     this.clr = clr;
   }
-  
+
   void slide(float newPos) {
     if (dir == "horizontal") {
-      if (newPos < b || newPos > a) {
+      if (newPos < b && newPos > a) {
         x = newPos;
       }
       else if (newPos >= b) {
@@ -32,11 +32,11 @@ class Slider {
       }
     }
   }
-  
+
   void drawSlider() {
     rect(x, y, w, h);
   }
-  
+
   float getSliderValue(float minValue, float maxValue) {
     float values = maxValue - minValue;
     if ((x - a) != 0) {
@@ -45,4 +45,4 @@ class Slider {
     }
     return minValue;
   }
-}  
+}
