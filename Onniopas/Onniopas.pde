@@ -23,11 +23,13 @@ float route2length;
 int chosenRoute;
 boolean newRoutes;
 
+KinectTracker kinectTracker;
+
 void setup() {
   size(1280, 720);
   basicSetup();
+  kinectSetup();
   createViews();
-  kinect.kinectSetup();
 }
 
 void basicSetup() {
@@ -52,6 +54,10 @@ void basicSetup() {
   chosenRoute = 0;
   newRoutes = true;
 }
+void kinectSetup() {
+  kinectTracker = new KinectTracker();
+}
+
 
 void createViews() {
   // First view: start view with title
