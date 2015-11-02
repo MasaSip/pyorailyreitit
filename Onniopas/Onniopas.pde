@@ -119,10 +119,10 @@ void drawViews() {
       // get two closest routes from backend
       
       //POISTA KOMMENTEISTA JA OTA KÄYTTÖÖN
-      //routes = getRoutes(slider.getSliderValue(3, 15));
+      routes = getRoutes(slider.getSliderValue(3, 15));
       //POISTA SEURAAVAT 2 RIVIÄ!!!
-      routes.add(new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "5"});
-      routes.add(new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "6"});
+      //routes.add(new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "5"});
+      //routes.add(new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "6"});
       //POISTO LOPPUU!!
       
       println("Valittu reittipituus: " + slider.getSliderValue(3, 15));

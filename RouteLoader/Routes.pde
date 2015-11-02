@@ -22,8 +22,9 @@ void loadRoutes() {
     String[] pieceTypes = calculateTrackPieceTypes(t, targetAmountOfPieces);
   
     int[] pieceHeigths = calculateTrackPieceHeights(t, targetAmountOfPieces);
-  
-    String[] output = serializeRoute(t.getTotalLength(), pieceTypes, pieceHeigths, filename);
+    
+    String[] nameParts = filename.split(", "); 
+    String[] output = serializeRoute(t.getTotalLength(), pieceTypes, pieceHeigths, nameParts[1]);
     outputLines += output.length;
     routeList.add(output);
   }
