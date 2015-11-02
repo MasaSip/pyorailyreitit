@@ -12,5 +12,5 @@
 // kaikista mahdollista myös olla ...-sea
 
 String[] getRoutes(float targetLength) {
-  
+  return new String[]{""};
 }
