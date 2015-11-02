@@ -249,7 +249,7 @@ void listenKinect() {
 
   if (gesture.equals("confirm")) confirmEvent();
   else if (gesture.equals("return")) returnEvent();
-  else if (gesture.equals("vertcal")); //moveSelector(true);
+  else if (gesture.equals("vertcal")); moveSelector(true);
   else if (gesture.equals("horizontal")) moveSlider(true);
 }
 
@@ -284,6 +284,11 @@ void returnEvent() {
     currentView--;
     println("Näkymä " + currentView);
   }
+}
+
+void moveSelector(boolean withKinect) {
+  if (withKinect) chosenRoute = kinectTracker.getVerticalScaled();
+  else if ()
 }
 
 void moveSlider(boolean withKinect) {
