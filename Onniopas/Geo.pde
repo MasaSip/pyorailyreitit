@@ -106,7 +106,7 @@ Track testTrack;
 GeoPointMapper mapper;
 
 void setupGeoTest() {
-  testTrack = new Track("data/smt-otsolahdenRanta-westendinMaki.json");
+  testTrack = new Track("../RouteLoader/data/smt-otsolahdenRanta-westendinMaki.json");
   mapper = new GeoPointMapper(testTrack,1280,720);
   mapper.offsetx=1280/2;
   mapper.offsety=720/2;

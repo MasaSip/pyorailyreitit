@@ -47,7 +47,7 @@ void basicSetup() {
   slider = new Slider("horizontal", 20, 50, 60, 390, 60, 1200, accentColor);
 
   crossings = loadPointSet("Espoo_risteykset.kml");
-  // setupGeoTest();
+  setupGeoTest();
 
   // get from backend (road types)
 
@@ -74,8 +74,8 @@ void createViews() {
 }
 
 void draw() {
-//  drawGeoTest();
-  drawViews();
+  drawGeoTest();
+//  drawViews();
 }
 
 void drawViews() {
