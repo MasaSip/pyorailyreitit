@@ -293,6 +293,7 @@ void keyPressed() {
   // slide: move hand in front of the user
   else if (keyCode == SHIFT) {
     moveSlider(false);
+    if (currentView == 2) moveSelector(false);
   }
 }
 
