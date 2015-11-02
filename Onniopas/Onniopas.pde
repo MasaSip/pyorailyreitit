@@ -47,13 +47,8 @@ void basicSetup() {
   // get from backend (road types)
 
   //route = loadRoutes();
-<<<<<<< daf456bcf3dd973dc37105ed3d3f9b60546d411c
-  route = new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "5"};
-
-=======
   routes = new ArrayList<String[]>();
   
->>>>>>> Building routes chosing methods
   chosenRoute = 0;
   newRoutes = true;
 }
@@ -69,13 +64,8 @@ void createViews() {
   views[2] = new View(2, bgColor1, "Reitti");
 
   // show chosen route on the map
-<<<<<<< daf456bcf3dd973dc37105ed3d3f9b60546d411c
-  views[3] = new View(3, bgColor1, "Valittu reitti kartalla");
-
-=======
   views[3] = new View(3, bgColor1, "Reittikartta");
   
->>>>>>> Building routes chosing methods
 }
 
 void draw() {
@@ -151,13 +141,8 @@ void drawViews() {
     // routes
     drawRoute(route1img, 1, getRouteName(routes.get(0)), getRouteLength(routes.get(0)), routes.get(0));
     drawRoute(route2img, 2, getRouteName(routes.get(1)), getRouteLength(routes.get(1)), routes.get(1));
-  }
-<<<<<<< daf456bcf3dd973dc37105ed3d3f9b60546d411c
-
-=======
-  
+  }  
   // maps
->>>>>>> Building routes chosing methods
   else if (currentView == 3) {
     // background
     background(views[3].clr);
@@ -167,13 +152,6 @@ void drawViews() {
     textFont(font2);
     fill(255,255,255);
     text(views[3].title, 10, 60);
-<<<<<<< daf456bcf3dd973dc37105ed3d3f9b60546d411c
-
-    fill(15, 180, 150);
-    rect(200, 120, 870, 500);
-  }
-
-=======
     
     if (chosenRoute == -1) {
     
@@ -200,7 +178,6 @@ void drawViews() {
     }
   }  
   
->>>>>>> Building routes chosing methods
 }
 
 PImage getMap(String routeLength) {
