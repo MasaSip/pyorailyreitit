@@ -290,6 +290,7 @@ void moveSlider(boolean withKinect) {
   if (withKinect) {
     // Return values from 0 to 100
     float xPos = kinectTracker.getHorizontalScaled();
+    println(xPos*width/100);
     slider.slide(xPos*width/100);
   } else {
     slider.slide(mouseX);

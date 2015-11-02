@@ -35,6 +35,7 @@ class Slider {
   
   void drawSlider() {
     rect(x, y, w, h);
+    println("drawSlider to " + str(x));
   }
   
   float getSliderValue(float minValue, float maxValue) {
