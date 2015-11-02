@@ -1,16 +1,22 @@
-String[] loadRoutes() {
+int targetAmountOfPieces = 10;
+
+void loadRoutes() {
   
-  String[] trackPieces;
-  int targetAmountOfPieces = 10;
+  String[] pieceTypes;
+  
+  String savingPath = "../Onniopas/data/routes.txt";
 
   Track otaniemiOtsolahtiWestend = new Track("data/smt-otsolahdenRanta-westendinMaki.json");
 
-  trackPieces = calculateTrackPieces(otaniemiOtsolahtiWestend, targetAmountOfPieces);
-  return trackPieces;
+  pieceTypes = calculateTrackPieceTypes(otaniemiOtsolahtiWestend, targetAmountOfPieces);
+  
+  int[] pieceHeigths = calculateTrackPieceHeights(otaniemiOtsolahtiWestend, targetAmountOfPieces);
+  
+  saveRoutes(savingPath, otaniemiOtsolahtiWestend.getTotalLength(), pieceTypes, pieceHeigths);
   
 }
 
-String[] calculateTrackPieces(Track track, int targetAmountOfPieces) {
+String[] calculateTrackPieceTypes(Track track, int targetAmountOfPieces) {
 
   ArrayList<TrackSegment> trackSegments = track.getTrackSegments();
   String[] trackPieces = new String[targetAmountOfPieces];
@@ -20,14 +26,18 @@ String[] calculateTrackPieces(Track track, int targetAmountOfPieces) {
   
 
   float pieceLength = lengthWithKnownPAvement/targetAmountOfPieces;
+  // first tarmac, second gravel
+  
   float tarmac = 0;
   float gravel = 0;
-
+  
   for (int i=0; i < trackSegments.size(); i++) {
       TrackSegment segment = trackSegments.get(i);
-      println(segment.getType());
+      // With two if loops, we avoid handling trackgegments with unkown type
+      
       if (segment.getType().equals("tarmac")){
         tarmac += segment.getLength();
+        
         while (tarmac > pieceLength){
           trackPieces[latestModifiedIndex] = segment.getType();
           tarmac -= pieceLength;
@@ -36,6 +46,7 @@ String[] calculateTrackPieces(Track track, int targetAmountOfPieces) {
       }
       if (segment.getType().equals("gravel")){
         gravel += segment.getLength();
+
         while (gravel > pieceLength){
           trackPieces[latestModifiedIndex] = segment.getType();
           gravel -= pieceLength;
@@ -51,4 +62,71 @@ String[] calculateTrackPieces(Track track, int targetAmountOfPieces) {
   }
 
   return trackPieces;
+}
+
+  /*
+  Piece heights are the average heights of track on piece
+  */
+int[] calculateTrackPieceHeights(Track track, int targetAmountOfPieces) {
+
+  ArrayList<String> debugList = new ArrayList<String>();
+  float unDevidedLength = 0;
+  float unDevidedHeight = 0;
+  
+  ArrayList<TrackSegment> trackSegments = track.getTrackSegments();
+  float pieceLength = track.getTotalLength()/targetAmountOfPieces;
+
+  float[] pieceHeigths = new float[targetAmountOfPieces];
+  int editNextIndex = 0;
+
+  for (int i=0; i < trackSegments.size(); i++) {
+      TrackSegment segment = trackSegments.get(i);
+      
+      unDevidedLength += segment.getLength();
+      unDevidedHeight += segment.getAverageHeight()*segment.getLength();
+      debugList.add(str(unDevidedLength) + " " + str(unDevidedHeight) + "===" + str(segment.getLength()) + "_" + str(segment.getAverageHeight()));
+
+      // One trackSegment may cause us to cross several piece boundaries
+      while (unDevidedLength > pieceLength) {
+        float overLength = unDevidedLength - pieceLength;
+        float overHeight = overLength*segment.getAverageHeight();
+        debugList.add(str(overLength));
+        debugList.add(str(overLength*segment.getAverageHeight()));
+        debugList.add(str(overHeight));
+        
+        float lengthAtBoundary = unDevidedLength - overLength;
+        float heightAtBoundary = unDevidedHeight - overHeight;
+        float pieceHeigth = heightAtBoundary/lengthAtBoundary;
+        pieceHeigths[editNextIndex] = pieceHeigth;
+        debugList.add("*********");
+        debugList.add(str(pieceHeigth));
+        debugList.add("*********");
+        editNextIndex++;
+        unDevidedLength = overLength;
+        unDevidedHeight = overHeight;
+      }
+  }
+
+  saveArrayList(debugList);
+  return int(pieceHeigths);
+}
+
+void saveArrayList(ArrayList<String> arrayList) {
+  String[] list = new String[arrayList.size()];
+  for (int i = 0; i < arrayList.size(); i++) {
+    list[i] = arrayList.get(i);
+  }
+  saveStrings("debug.txt", list);
+}
+
+void saveRoutes(String filePath, float length, String[] trackPieces, int[] pieceHeigths){
+  String[] routes = new String[targetAmountOfPieces+3];
+  routes[0] = str(round(length/100)/10.0f);
+  for (int i =0; i < trackPieces.length; i++) {
+    routes[1+i] = trackPieces[i] + "-" + pieceHeigths[i];
+  }
+  routes[trackPieces.length + 1] = "Marathon-reitti";
+  routes[trackPieces.length + 2] = " ";
+
+  saveStrings(filePath, routes);
 }

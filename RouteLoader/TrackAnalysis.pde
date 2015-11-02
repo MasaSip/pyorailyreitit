@@ -1,18 +1,18 @@
 GeoPointSet filterToTrackBounds(Track t, GeoPointSet gs) {
   double tolerance = 0.0001; /* Leveyspiireissä tämä vastaa reilua kymmentä metriä */
   GeoPointSet res = new GeoPointSet();
-  for (GeoPoint g : gs.points) {
+  for (Coordinate g : gs.points) {
     if (g.latitude > t.maxLatitude + tolerance) continue;
     if (g.latitude < t.minLatitude - tolerance) continue;
     if (g.longitude > t.maxLongitude + tolerance) continue;
     if (g.longitude < t.minLongitude - tolerance) continue;
-    res.points.add((GeoPoint)g.clone());
+    res.points.add(g.clone());
   }
   return res;
 }
 
 class CrossingData implements GeoDrawable {
-  GeoPoint crossingPoint;
+  Coordinate crossingPoint;
   void drawGeo(GeoPointMapper mapper) {
     PVector p = mapper.map(crossingPoint);
     fill(#00ff00);
@@ -33,7 +33,7 @@ void analyzeCrossings(Track t, GeoPointSet crossings) {
    ArrayList<TrackSegment> trackSegments = t.trackSegments;
    println("Tuloste alkaa");
    for (int i = 0; i < trackSegments.size(); i++) {
-     ArrayList<GeoPoint> coordinates = trackSegments.get(i).coordinates;
+     ArrayList<Coordinate> coordinates = trackSegments.get(i).coordinates;
      PVector prev = null;
      for (int j = 0; j < coordinates.size(); j++) {
        PVector p = mapper.map(coordinates.get(j));
@@ -41,7 +41,7 @@ void analyzeCrossings(Track t, GeoPointSet crossings) {
          PVector pathVector = PVector.sub(p,prev);
          float pathLen = pathVector.mag();
          PVector pathTangent = pathVector.normalize();
-        for (GeoPoint cp : crossings.points) {
+        for (Coordinate cp : crossings.points) {
            float tolerance = 0.0003;
            PVector p2 = mapper.map(cp);
            PVector diff = PVector.sub(p2,prev);

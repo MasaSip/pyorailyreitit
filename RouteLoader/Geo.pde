@@ -1,19 +1,19 @@
-class GeoPoint implements Cloneable, Comparable<GeoPoint> {
+class Coordinate implements Cloneable, Comparable<Coordinate> {
   double longitude, latitude, height;
   Object extraData;
   
-  GeoPoint(double longitude, double latitude, double height) {
+  Coordinate(double longitude, double latitude, double height) {
     this.longitude=longitude; this.latitude=latitude; this.height=height;
   }
-  int compareTo(GeoPoint p) {
+  int compareTo(Coordinate p) {
     return Double.compare(this.longitude,p.longitude);
   }
   String toString() {
     return Double.toString(longitude)+":"+Double.toString(latitude); 
   }
-  public GeoPoint clone() {
+  public Coordinate clone() {
     try {
-      return (GeoPoint)super.clone();
+      return (Coordinate)super.clone();
     } catch (CloneNotSupportedException e) {
       return null; 
     }
@@ -24,7 +24,7 @@ interface GeoDrawable {
   void drawGeo(GeoPointMapper mapper);
 }
 
-class GeoPointMapper { //<>//
+class GeoPointMapper {
   double originLongitude, originLatitude;
   int offsetx, offsety;
   float scale;
@@ -57,7 +57,7 @@ class GeoPointMapper { //<>//
       scale = (float)(((double)height)/latitudeRange);
     }
   }
-  PVector map(GeoPoint g) {
+  PVector map(Coordinate g) {
     double deltaLongitude = g.longitude - originLongitude;
     double deltaLatitude = g.latitude - originLatitude;
     PVector p = new PVector(offsetx+(float)(scale*deltaLongitude*Math.cos(originLatitude*(Math.PI/180))),offsety-(float)(scale*deltaLatitude));
@@ -67,12 +67,12 @@ class GeoPointMapper { //<>//
 
 
 class GeoPointSet implements GeoDrawable {
-  java.util.TreeSet<GeoPoint> points;
+  java.util.TreeSet<Coordinate> points;
   GeoPointSet() {
-    points = new java.util.TreeSet<GeoPoint>(); 
+    points = new java.util.TreeSet<Coordinate>(); 
   }
   void drawGeo(GeoPointMapper mapper) {
-     for (GeoPoint g : points) {
+     for (Coordinate g : points) {
        if (g.extraData != null && g.extraData instanceof GeoDrawable) {
          GeoDrawable gd = (GeoDrawable)g.extraData;
          gd.drawGeo(mapper);
@@ -96,7 +96,7 @@ GeoPointSet loadPointSet(String filename) {
       String longitude = coordinates.substring(0,separator);
       int separator2 = coordinates.indexOf(",",separator+1);
       String latitude = coordinates.substring(separator+1,separator2);
-      GeoPoint p = new GeoPoint(Double.parseDouble(longitude),Double.parseDouble(latitude),0);
+      Coordinate p = new Coordinate(Double.parseDouble(longitude),Double.parseDouble(latitude),0);
       pointset.points.add(p);
     }
     return pointset;

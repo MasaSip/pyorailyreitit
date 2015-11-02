@@ -16,11 +16,11 @@ class Track implements GeoDrawable {
       JSONObject pathObject = path.getJSONObject(i);
 
       JSONArray points = pathObject.getJSONArray("points");
-      ArrayList<GeoPoint> coordinates = new ArrayList<GeoPoint>();
+      ArrayList<Coordinate> coordinates = new ArrayList<Coordinate>();
         
       for (int j = 0; j < points.size(); j++) {
         JSONObject coordinate = points.getJSONObject(j);
-        GeoPoint coord = new GeoPoint(coordinate.getFloat("x"), coordinate.getFloat("y"), 0);
+        Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), coordinate.getFloat("z"));
         coordinates.add(coord);
       }
 
@@ -33,7 +33,7 @@ class Track implements GeoDrawable {
         lengthWithKnownPavement += length;
       }
     }
-    computeMinMax();    
+    computeMinMax();
   }
 
   ArrayList<TrackSegment> getTrackSegments() {
@@ -60,9 +60,9 @@ class Track implements GeoDrawable {
      double maxLongitude = Double.NEGATIVE_INFINITY;
      double minLongitude = Double.POSITIVE_INFINITY;
      for (int i=0; i < trackSegments.size(); i++) {
-       ArrayList<GeoPoint> coordinates = trackSegments.get(i).coordinates;
+       ArrayList<Coordinate> coordinates = trackSegments.get(i).coordinates;
        for (int j=0; j<coordinates.size(); j++) {
-         GeoPoint p = coordinates.get(j);
+         Coordinate p = coordinates.get(j);
          if (p.longitude > maxLongitude) maxLongitude = p.longitude;
          if (p.longitude < minLongitude) minLongitude = p.longitude;
          if (p.latitude > maxLatitude) maxLatitude = p.latitude;
