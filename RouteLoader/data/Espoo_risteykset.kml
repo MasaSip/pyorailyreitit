@@ -1,0 +1,1411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Espoo_risteykset.kml</name>
+	<StyleMap id="m_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin0">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>C:/Users/Valvomo/AppData/LocalLow/Google/GoogleEarth/lvalo.bmp</href>
+			</Icon>
+			<hotSpot x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<scale>0.7</scale>
+		</LabelStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl0">
+		<IconStyle>
+			<scale>0.472727</scale>
+			<Icon>
+				<href>C:/Users/Valvomo/AppData/LocalLow/Google/GoogleEarth/lvalo.bmp</href>
+			</Icon>
+			<hotSpot x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<LabelStyle>
+			<scale>0.7</scale>
+		</LabelStyle>
+	</Style>
+	<Folder>
+		<name>Espoo_risteykset.kml</name>
+		<open>1</open>
+		<LookAt>
+			<longitude>24.90078520995387</longitude>
+			<latitude>60.25388280895805</latitude>
+			<altitude>0</altitude>
+			<heading>-0.04742933765921518</heading>
+			<tilt>0</tilt>
+			<range>37316.31674595898</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<Placemark>
+			<name>102   Tapiolant. - Revontulent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8105,60.1729,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>103   Merituulent. - Tapiolant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8097,60.1756,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>104   Merituulent. - Tapiontorint.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8066,60.17529999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>104a   JK-Merituulent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8051,60.17510000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>105   Merituulent. - Pohjant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8011,60.1745,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>107   Merituulent. - Kelohongant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7948,60.1737,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>108   Merituulent. - Hakamäent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7921,60.1734,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>109   Merituulent. - Suvikummunt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7884,60.1735,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>111   Merituulent. - Koivumankkaant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7795,60.1722,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>112   Merituulent. - Niittymaant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7762,60.1714,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>113   Merituulent. (pelastuslaitos)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7712,60.17060000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>120   Karhusaarent. - Keilaniement.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8269,60.17329999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>121   Kehä I - Karhusaarent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.829,60.1769,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>122   Kehä I - Tapiolant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8235,60.1792,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>123   Kehä I - Kalevalant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.81,60.1859,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>124   Kalevalant. - Tietäjänt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.803,60.18460000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>130   Pohjant. - Länsituulent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8007,60.1752,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>131   JK-Pohjant. - Tapionraitti</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8001,60.17630000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>132   Pohjant. - Kauppamiehent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.79980000000001,60.1767,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>135   JK-Pohjant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7969,60.1807,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>136   Pohjant. - Kalevalant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7947,60.1827,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>137   Pohjant. - Kaskenkaatajant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7932,60.18280000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>139   Kalevalant. - Koivuviidant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7872,60.1832,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>140   Tapiolant. - Menninkäisent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8115,60.1776,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>141   JK-Tapiolant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8146,60.1784,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>142   Tapiolant. - Otsolahdent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8179,60.1787,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>143   Tapiolant. - Kimmellt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.82,60.1789,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>150   Koivumankkaant. - Tontunmäki</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.779,60.1749,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>151   Koivumankkaant. (BLUES)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7786,60.1784,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>152   Kalevalant. - Koivumankkaant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7796,60.18160000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>153   JK-Tuohivirsu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7832,60.18230000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>160   JK-Louhent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7963,60.1859,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>170   Karhusaarent. - Otaniement.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8348,60.17960000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>171   JK-Otaniement.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8266,60.18460000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>180   Koivuviidant. - Mahlakuja</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7839,60.18699999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>190   Etelätuulent. - Revontulent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8022,60.17160000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>191   Etelätuulent. - Itätuulent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8015,60.1737,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>194   JK - Hiiralant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7939,60.1643,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>195   Toppelundint. - Säynävät.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7811,60.1612,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>199   Kalevalantie - ABC</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8072,60.185,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>200   JK - Kuitinmäentie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7411,60.1674,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>201   Merituulent. - Niittysillant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7712,60.1711,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>202   Merituulent. - Kotitontunt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7673,60.1712,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>203   Merituulent. - Haukilahdent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7642,60.171,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>204   Merituulent. - Niittykumpu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7612,60.1708,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>206   Merituulent. - Kehä II (itään).</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7544,60.1704,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>207   Merituulent. - Kehä II (idästä)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7524,60.17,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>208   Kuitinmäent. - Uuskartanont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.748,60.1697,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>209   Kuitinmäentie - Piispankallio</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7428,60.1682,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>210   Kuitinmäent. - Olarinkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7385,60.16640000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>211   Kuitinmäent. - Piispanportti</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7323,60.16579999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>212   Kuitinmäent. - Friisinkalliont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.72810000000001,60.1657,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>213   Kuitinmäent - Piispanmäent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7249,60.1642,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>214   Kuitinmäent. - Kalastajant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.72200000000001,60.1628,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>215   Kuitinmäent. - Friisinniitynpolku</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7185,60.1622,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>223   Haukilahdent. - Ahvent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7727,60.16590000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>231   Matinkartanont. - Länsiväylä</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.75250000000001,60.1648,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>232   Matinkartanont. - Matinpuront.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7518,60.1632,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>240   JK-Matinkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7472,60.1595,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>241   JK-Aapelinkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.75100000000001,60.1555,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>250   Uuskartanont. - Kalenterit.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7452,60.173,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>251   Mankkaanlaaksont. - Kehä II (idästä)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7473,60.1818,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>252   Mankkaanlaaksont. - Kehä II (itään)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7542,60.1812,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>253   Mankkaanlaaksont. - Olarinluoma</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7598,60.18099999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>254   Mankkaanlaaksont. - Suurpellont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7457,60.18160000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>261   Piispansilta - Suomenlahdent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7405,60.1607,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>262   Piispansilta - Nelikkotie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7397,60.16170000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>262a   JK-Piispansilta</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.739,60.1622,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>263   Piispansilta - Länsiväylä (lännestä)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7378,60.1633,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>264   Piispansilta - Länsiväylä (länteen)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7372,60.164,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>266   Piispansilta - Olarinkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7364,60.1666,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>267   Olarinkatu - Auringonkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7314,60.1719,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>268   Olarinkatu - Kuunkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7297,60.17329999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>269   Friisinkalliont. - Kuunkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7225,60.17229999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>300   Kuitinmäentie - Finnoonristi</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.707,60.1619,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>301   Kuitinmäent. - Isonniitynkuja</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7102,60.1618,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>302   Martinsillant. - Suomalaistent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.702,60.1621,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>303   Länsiväylä - Finnoonsilta</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7047,60.1608,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>304   Martinsillant. - Varput.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6933,60.1601,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>305   Hannuksentie - Länsiväylä</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.706,60.1592,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>306   Hannuksentie - Rusthollarinkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7062,60.15840000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>307   JK - Martinsillant. (Neste)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7002,60.162,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>310   JK-Kaitaantie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.695,60.15220000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>370   Puolarmetsänk. - Finnoont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.689,60.173,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>380   Nöykkiönk. - Finnoont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6756,60.1799,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>381   Lehtikaskent. - Finnoont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6709,60.1812,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>401   JK-Martinsillant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6736,60.1555,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>408   Nöykkiönk. - Kattilalaaksonk.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6607,60.1672,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>409   Martinsillant. - Soukanväylä</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6637,60.15520000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>410   JK-Kipparinkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6507,60.1493,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>411   Soukanväylä - Kivenlahdent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6651,60.1523,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>412   Espoonlahdenranta - Espoonlahdenkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6516,60.1521,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>413   Soukanväylä - Espoonlahdent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6668,60.1491,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>414   Soukanväylä - Kouluportti</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6714,60.1466,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>415   Soukanväylä - Yläkartanont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6751,60.1438,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>420   Kivenlahdentie - Kivenlahdenkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6319,60.1562,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>500   Turunt. - Vermonportti</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.839,60.2207,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>501   Turunt. - Mäkkylän puistot.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.834,60.2205,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>503   JK-Hannu Olavinpojantie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8197,60.2202,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>504   Turunt. - Hannu Olavinpojant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8223,60.21940000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>505   Turunt. - Kehä I (itään )</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8194,60.2195,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>506   Turunt. - Kehä I (länteen)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8141,60.2198,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>507   Turunt. - Lintuvaarant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8106,60.22,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>508   Portinvartijant. - Vanha maant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8069,60.2214,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>509   Ratsukatu - Vanhamaantie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8086,60.2208,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>510   Ratsukatu - Turuntie (ramppi)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8076,60.21970000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>511   Ratsukatu - Linnatullinkatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8076,60.21909999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>513   Numersinkatu - Leppävaarankatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8092,60.2171,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>514   Albergan Esplanadi - Leppävaarankatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8121,60.2171,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>515   Hevosenkenkä - Leppävaarankatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8148,60.2175,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>516   Hevosenkenkä - Leppävaaranaukio</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8151,60.2187,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>517   Kehä I - Perkkaant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8183,60.21789999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>520   Kehä I - Turvesuont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.80890000000001,60.2,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>521   Kehä I - Kurkijoent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8153,60.20450000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>524   JK-Leppävaarankatu</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8027,60.2173,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>527   Kehä I - Mäkkylän puistotie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8258,60.2252,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>530   Lintuvaarant. - Harakant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8111,60.22510000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>531   Lintuvaarant. - Leipurinkuja</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8108,60.2229,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>532   Lintuvaarant. - Konstaapelink.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8111,60.2218,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>533   Lintuvaarant. - Läkkisepänkuja</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8109,60.2208,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>540   Turvesuont. - Kirvunt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.804,60.20100000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>541   JK-Turvesuont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8072,60.2006,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>550   JK-Kauppaoppilaitos (L-vaara)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8061,60.2218,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>551   JK-Vallik.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.819,60.2282,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>552   Lintuvaarant. - Vallik.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8137,60.2287,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>554   Lintuvaarant.- Linnunt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8136,60.2342,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>555   JK-Hämeenkylänt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8088,60.2379,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>556   JK-Linnuntie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8187,60.2344,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>560   Säterinkatu - Kehä I (itään)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8184,60.2126,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>561   Säterinkatu - Kehä I (länteen)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8136,60.2128,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>598   Portinvartijantie (pelastulaitos)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8065,60.2205,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>599   Turuntie - Portinvartijantie (pelastuslaitos)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.8065,60.2199,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>602   JK-Mankkaant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7757,60.1914,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>603   Mankkaant. - Kokinkylänt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7692,60.1943,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>604   Mankkaant. - Porttiniitynt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7658,60.19680000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>605   Mankkaant. - Kruunut.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.76320000000001,60.19919999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>606   Mankkaant. - Sinimäent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7609,60.20370000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>607   Sinimäent. - Klovinpellont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7588,60.2044,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>608   Nihtisilta (ramppi HKI :iin)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7569,60.20539999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>609   Nihtisilta (ramppi Hki: stä)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7548,60.2064,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>612   Kauniaistent. - Nihtisillant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7519,60.2074,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>613   Kauniastent. - Palomiehent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7431,60.2094,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>613a   Palomiehent. (palokunta)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7421,60.2074,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>615   JK-Kruunut.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7556,60.2002,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>618   Nihtisillant. - Kutojant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7536,60.2088,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>619   Nihtisillant. - Nihtisillankuja</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7578,60.2096,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>620   Lansat. - Nuijavuori</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7684,60.21170000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>621   Karantie - Lansatie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7634,60.21189999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>622   Nihtisillantie - Nuijalantie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7616,60.2108,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>625   Sinimäent. - Sinikalliont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7664,60.2035,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>626   Sinimäent. - (Vexi)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7688,60.2038,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>650   JK-Lansatie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7802,60.2173,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>700   Turunt. - Kilont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7869,60.2237,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>701   Turunt. - Rastaalant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.77840000000001,60.22540000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>702   Kehä II - Karapellont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7502,60.218,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>703   Turunt. - Lähderannant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.75860000000001,60.22559999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>704   Turunt. - Kehä II</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7499,60.22540000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>705   JK- Turuntie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7462,60.22559999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>706   Turunt. - Viherlaaksont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.74180000000001,60.22559999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>707   Viherlaaksont. - Pesät.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7432,60.2315,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>710   Rastaalant. - Karakalliont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7775,60.22979999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>711   JK - Rastaalantie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7746,60.2318,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>720   JK-Lähderannat.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7459,60.2341,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>721   Kolkekannaksentie - Vilniementie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7238,60.2356,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>723   Pitkäjärvent. - Lähderannant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7407,60.24030000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>724   JK-Pitkäjärvent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7492,60.2442,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>725   JK-Pitkäjärvent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7638,60.2505,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>750   Pitkäjärvent. - Laaksolahdent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7689,60.2522,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>770   JK-Karaniitynt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.76010000000001,60.2238,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>810   JK-Hansatie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.5978,60.1887,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>823   Finnoont. - Hösmärint.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6647,60.1949,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>825   Finnoont. - Siltak.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6523,60.2028,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>826   Finnoont. - Kirkkojärvent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6497,60.2043,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>827   Espoonväylä - Iso maant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6398,60.20689999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>828   Espoonväylä - Espoont.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6365,60.2089,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>829   Espoont. (pelastuslaitos)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6384,60.2094,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>830   Hösmärint - Sunant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6697,60.1973,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>831   JK-Sunant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6662,60.19919999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>840   JK-Kirstint.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6697,60.2026,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>845   JK-Sunankaari</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6824,60.20150000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>860   Kirkkojärvent. - Tuomarilank.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6734,60.20670000000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>880   Tuomarilantie - Turunväylä</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6975,60.2071,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>900   Kauklahdenväylä - Hansatie</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.585,60.18749999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>902   Muuralant. - Vanha Muuralant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6429,60.2121,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>905   Espoont. - Kirkkok.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6528,60.2139,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>908   Espoont. - Lommilant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6616,60.2184,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>909   Espoont. - Turunt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6663,60.2216,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>910   Espoontie - Gigantti</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6629,60.2199,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>912   Turunt. - Kuninkaant.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.6767,60.2225,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>920   Turunt. - Kolkejärvent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.707,60.224,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>930   JK-Kolkejärvent.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7161,60.2318,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>940   Träskandan puistot. - Järvenperänt.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7078,60.2386,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>960   JK-Niipperint.</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.746,60.28359999999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>970   JK-Vihdint. (Kalajärven koulu)</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<coordinates>24.7364,60.30749999999999,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
