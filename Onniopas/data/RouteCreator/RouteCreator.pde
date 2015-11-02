@@ -11,11 +11,12 @@
 //
 // kaikista mahdollista myös olla ...-sea
 
-ArrayList<String[]> result;
+//ArrayList<String[]> result;
+ArrayList<String[]> result = new ArrayList<String[]>();
 
 void setup() {
-  getRoutes(3.7);
-  result = new ArrayList<String[]>();
+  getRoutes(10);
+  //result = new ArrayList<String[]>();
 }
 
 String numbers = "1234567890";
@@ -27,6 +28,7 @@ String[] route1String = new String[12];
 String[] route2String = new String[12];
 int highestPoint = 0;
 int previousHeight = 0;
+int seaLevel = 3;
 
 ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN String[] !!!
 
@@ -37,13 +39,20 @@ ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN S
   //}
 
   for (int i = 0; i < allRoutes.length; i++) { //etsitään kaksi lähintä reittiä
-    for (int j = 0; i < 10; i++) {
+    for (int j = 0; j < 10; j++) {
 
-      if (allRoutes[i].equals(str(numbers.charAt(j)))) {
+      //println(allRoutes[i]);
+
+      if (allRoutes[i].length() != 0 && allRoutes[i].charAt(0) == numbers.charAt(j)) {
 
         float thisLength = new Float(allRoutes[i]);
 
+        //println(i);
+
         if (abs(thisLength - targetLength) < abs(closestRoute1Length - targetLength)) {
+          closestRoute2Index = closestRoute1Index;
+          closestRoute2Length = closestRoute1Length;
+
           closestRoute1Index = i;
           closestRoute1Length = thisLength;
         } else if (abs(thisLength - targetLength) < abs(closestRoute2Length - targetLength)) {
@@ -75,9 +84,9 @@ ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN S
   }
 
 
-  for (int i = closestRoute1Index + 1; i < closestRoute1Index + 10; i++) { //kasataan palautettavat reitit
+  for (int i = 0; i < 10; i++) { //kasataan palautettavat reitit
 
-    String[] parts = split(allRoutes[i], '-');
+    String[] parts = split(allRoutes[i+closestRoute1Index+1], '-');
 
     route1String[i] = parts[0];
     route1String[i] += "-";
@@ -89,15 +98,17 @@ ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN S
       else route1String[i] += "up";
 
     } else if (previousHeight > highestPoint/2) route1String[i] += "down";
-    else if (height < 3) route1String[i] += "low-sea";
+    else if (height <= seaLevel) route1String[i] += "low-sea";
     else route1String[i] += "low";
 
     previousHeight = height;
   }
 
-  for (int i = closestRoute2Index + 1; i < closestRoute2Index + 10; i++) { //kasataan palautettavat reitit
+  //println(route2String);
 
-    String[] parts = split(allRoutes[i], '-');
+  for (int i = 0; i < 10; i++) { //kasataan palautettavat reitit
+
+    String[] parts = split(allRoutes[i+closestRoute2Index+1], '-');
 
     route2String[i] = parts[0];
     route2String[i] += "-";
@@ -111,25 +122,33 @@ ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN S
       else route2String[i] += "up";
 
     } else if (previousHeight > highestPoint/2) route2String[i] += "down";
-    else if (height < 3) route2String[i] += "low-sea";
+    else if (height <= seaLevel) route2String[i] += "low-sea";
     else route2String[i] += "low";
 
     previousHeight = height;
   }
 
-  route1String = append(route1String, allRoutes[closestRoute1Index+11]);
-  route1String = append(route1String, str(closestRoute1Length));
+  closestRoute1Length = new Float(allRoutes[closestRoute1Index]);
+  closestRoute2Length = new Float(allRoutes[closestRoute2Index]);
 
-  route2String = append(route2String, allRoutes[closestRoute2Index+11]);
-  route2String = append(route2String, str(closestRoute2Length));
+  //route1String = append(route1String, allRoutes[closestRoute1Index+11]);
+  //route1String = append(route1String, str(closestRoute1Length));
 
-  //result = append(result, route1String);
-  //result = append(result, route2String);
+  //route2String = append(route2String, allRoutes[closestRoute2Index+11]);
+  //route2String = append(route2String, str(closestRoute2Length));
+
+  route1String[10] = allRoutes[closestRoute1Index+11];
+  route1String[11] = str(closestRoute1Length);
+
+  route2String[10] = allRoutes[closestRoute2Index+11];
+  route2String[11] = str(closestRoute2Length);
 
   result.add(route1String);
   result.add(route2String);
 
   println(result);
+  println(route1String);
+  println(route2String);
 
   return result;
 }
