@@ -17,11 +17,8 @@ String[] route;
 PImage[] route1img;
 PImage[] route2img;
 PImage earth;
-float route1length;
-float route2length;
 
 int chosenRoute;
-boolean newRoutes;
 
 void setup() {
   size(1280, 720);
@@ -41,15 +38,16 @@ void basicSetup() {
   rectColor = color(140, 304, 100, 1);
   
   // Slider
-  slider = new Slider("horizontal", 20, 50, 60, 390, 60, 1200, accentColor);
+  slider = new Slider("horizontal", 20, 50, 100, 390, 60, 1200, accentColor);
 
   // get from backend (road types)
-
   //route = loadRoutes();
-  route = new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "5"};
+  route = new String[]{"tarmac-low", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low"};
+
+  // list for saving road images
+  //images = new PImage[10];
   
   chosenRoute = 0;
-  newRoutes = true;
 }
 
 void createViews() {
@@ -93,8 +91,6 @@ void drawViews() {
   }
   
   else if (currentView == 1) {
-    newRoutes = true;
-    
     // texts
     PFont font2 = createFont("calibri.ttf", 30);
     textFont(font2);
@@ -114,15 +110,13 @@ void drawViews() {
   }
   
   else if (currentView == 2) {
-    if (prevView < currentView && newRoutes == true) {
+    if (prevView < currentView) {
       // get two closest routes from backend
       //ArrayList<String[]> routes2 = new ArrayList<String[]>();
       //routes2 = getRoutes(slider.getSliderValue(3, 15));
-      println("Valittu reittipituus: " + slider.getSliderValue(3, 15));
       // save route images to images list
       route1img = getRouteImages();
       route2img = getRouteImages();
-      newRoutes = false;
     }
     
     // texts
@@ -132,8 +126,8 @@ void drawViews() {
     text(views[2].title, 10, 60);
     
     // routes
-    drawRoute(route1img, 1, getRouteName(route), getRouteLength(route));
-    drawRoute(route2img, 2, getRouteName(route), getRouteLength(route));
+    drawRoute(route1img, 1);
+    drawRoute(route2img, 2);
   }
   
   else if (currentView == 3) {
@@ -154,7 +148,7 @@ void drawViews() {
 
 PImage[] getRouteImages() {
   PImage[] images = new PImage[10];
-  for (int i = 0; i < route.length-1; i++) {
+  for (int i = 0; i < route.length; i++) {
     float random = random(100);
     if (route[i].equals("tarmac-low") || route[i].equals("tarmac-high")) {
       if (random <= 15) {
@@ -166,9 +160,6 @@ PImage[] getRouteImages() {
       else {
         images[i] = loadImage("tarmac2.png");
       }
-    }
-    else if (route[i].equals("tarmac-low-sea")) {
-      images[i] = loadImage("tarmac-sea.png");
     }
     else if (route[i].equals("tarmac-up")) {
       images[i] = loadImage("tarmac-up.png");
@@ -184,9 +175,6 @@ PImage[] getRouteImages() {
         images[i] = loadImage("gravel-xmas.png");
       }
     }
-    else if (route[i].equals("gravel-low-sea")) {
-        images[i] = loadImage("gravel-sea.png");
-      }
     else if (route[i].equals("gravel-up")) {
       images[i] = loadImage("gravel-up.png");
     }
@@ -198,21 +186,25 @@ PImage[] getRouteImages() {
   return images;
 }
 
-String getRouteName(String[] route) {
-  return route[10];
+void drawBackground() {
+  int r = 140;
+  int g = 221;
+  int b = 225;
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < height; j++) {
+        stroke(r, i+150, b);
+        line(0,i,width,i);
+    }
+  }
 }
 
-String getRouteLength(String[] route) {
-  return route[11];
-}
-
-void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLength) {
-  for (int i = 0; i < images.length; i++) {
+void drawRoute(PImage[] images, int whichRoute) {
+  for (int i = 0; i < route.length; i++) {
     if (route[i].equals("tarmac-high") || route[i].equals("gravel-high")) {
-      //platform for the route image
+      //alkumaapalikka
       earth.resize(140, 52);
       image(earth, i*110.6+70, 88+whichRoute*200);
-      //the actual route image
+      //oikeapalikka
       images[i].resize(140, 140);
       image(images[i], i*110.6+70, -17+whichRoute*200);
     }
@@ -221,11 +213,6 @@ void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLe
       image(images[i], i*110.6+70, 0+whichRoute*200);
     }
   }
-  //route description text
-  PFont font2 = createFont("calibri.ttf", 30);
-  textFont(font2);
-  fill(255,255,255);
-  text(routeName + ", " + routeLength, 70, 180+whichRoute*200);
 }
 
 void keyPressed() {
