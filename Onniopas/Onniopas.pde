@@ -69,7 +69,6 @@ void createViews() {
 
 void draw() {
   drawViews();
-  listenKinect();
 }
 
 void drawViews() {
@@ -227,23 +226,6 @@ void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLe
   textFont(font2);
   fill(255,255,255);
   text(routeName + ", " + routeLength, 70, 180+whichRoute*200);
-}
-
-void listenKinect(); {
-  String gesture;
-
-  if (currentView == 1) {
-    gesture = listenKinectGestures("horizontal");
-  } else if (currentView == 2) {
-    gesture = listenKinectGestures("vertical");
-  } else {
-    gesture = listenKinectGestures("basic");
-  }
-
-  if (gesture.equals("confirm")) confirmEvent();
-  else if (gesture.equals("return")) returnEvent();
-  else if (gesture.equals("vertical")) moveSelector();
-  else if (gesture.equals("horizontal")) moveSlider();
 }
 
 void keyPressed() {
