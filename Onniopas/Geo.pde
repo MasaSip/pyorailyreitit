@@ -1,5 +1,7 @@
-class GeoPoint implements Comparable<GeoPoint> {
+class GeoPoint implements Cloneable,Comparable<GeoPoint> {
   double longitude, latitude, height;
+  Object extraData;
+  
   GeoPoint(double longitude, double latitude, double height) {
     this.longitude=longitude; this.latitude=latitude; this.height=height;
   }
@@ -9,13 +11,12 @@ class GeoPoint implements Comparable<GeoPoint> {
   String toString() {
     return Double.toString(longitude)+":"+Double.toString(latitude); 
   }
-}
-
-class Point {
-  float x, y;
-  Point(float x, float y) { this.x = x; this.y = y; }
-  String toString() {
-    return str(x)+":"+str(y); 
+  public GeoPoint clone() {
+    try {
+      return (GeoPoint)super.clone();
+    } catch (CloneNotSupportedException e) {
+      return null; 
+    }
   }
 }
 
@@ -23,11 +24,20 @@ interface GeoDrawable {
   void drawGeo(GeoPointMapper mapper);
 }
 
-class GeoPointMapper {
-  double originLongitude, originLatitude; //<>//
+class GeoPointMapper { //<>//
+  double originLongitude, originLatitude;
   int offsetx, offsety;
   float scale;
-  GeoPointMapper(Track t, int width, int height) {
+  GeoPointMapper(Track t) {
+    double minLongitude = t.minLongitude;
+    double maxLongitude = t.maxLongitude;
+    double minLatitude = t.minLatitude;
+    double maxLatitude = t.maxLatitude;
+    originLongitude = (minLongitude+maxLongitude)/2;
+    originLatitude = (minLatitude+maxLatitude)/2;    
+    scale = 1;
+  }
+  GeoPointMapper(Track t, float width, float height) {
     double minLongitude = t.minLongitude;
     double maxLongitude = t.maxLongitude;
     double minLatitude = t.minLatitude;
@@ -47,10 +57,10 @@ class GeoPointMapper {
       scale = (float)(((double)height)/latitudeRange);
     }
   }
-  Point map(GeoPoint g) {
+  PVector map(GeoPoint g) {
     double deltaLongitude = g.longitude - originLongitude;
     double deltaLatitude = g.latitude - originLatitude;
-    Point p = new Point(offsetx+(float)(scale*deltaLongitude*Math.cos(originLatitude*(Math.PI/180))),offsety-(float)(scale*deltaLatitude));
+    PVector p = new PVector(offsetx+(float)(scale*deltaLongitude*Math.cos(originLatitude*(Math.PI/180))),offsety-(float)(scale*deltaLatitude));
     return p;
   }
 }
@@ -62,11 +72,16 @@ class GeoPointSet implements GeoDrawable {
     points = new java.util.TreeSet<GeoPoint>(); 
   }
   void drawGeo(GeoPointMapper mapper) {
-     stroke(#ff0000);
-     fill(#ff0000);
      for (GeoPoint g : points) {
-       Point p = mapper.map(g);
+       if (g.extraData != null && g.extraData instanceof GeoDrawable) {
+         GeoDrawable gd = (GeoDrawable)g.extraData;
+         gd.drawGeo(mapper);
+       } else {
+       PVector p = mapper.map(g);
+       stroke(#ff0000);
+       fill(#ff0000);
        ellipse(p.x,p.y,5,5);
+       }
      }
   }  
 }
@@ -100,5 +115,7 @@ void setupGeoTest() {
 void drawGeoTest() {
   background(#ffffff);
   testTrack.drawGeo(mapper);
-  crossings.drawGeo(mapper);
+  GeoPointSet filtered = filterToTrackBounds(testTrack,crossings);
+  analyzeCrossings(testTrack,filtered);
+  filtered.drawGeo(mapper);
 }

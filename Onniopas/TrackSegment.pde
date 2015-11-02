@@ -23,10 +23,10 @@ class TrackSegment implements GeoDrawable {
   }
   
   void drawGeo(GeoPointMapper mapper) {
-    Point previous = null;
+    PVector previous = null;
     stroke(#000000);
     for (int i=0; i<coordinates.size(); i++) {
-       Point p = mapper.map(coordinates.get(i));
+       PVector p = mapper.map(coordinates.get(i));
        if (previous!=null) {
          line(previous.x,previous.y,p.x,p.y);
        }
