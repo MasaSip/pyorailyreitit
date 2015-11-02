@@ -1,11 +1,10 @@
-class Track {
+class Track implements GeoDrawable {
 
   ArrayList<TrackSegment> trackSegments;
   float totalLength;
   float lengthWithKnownPavement;
 	
   Track(String dataPath){
-  
     JSONObject route = loadJSONObject(dataPath);
     this.totalLength = route.getFloat("length");
 
@@ -17,11 +16,11 @@ class Track {
       JSONObject pathObject = path.getJSONObject(i);
 
       JSONArray points = pathObject.getJSONArray("points");
-      ArrayList<Coordinate> coordinates = new ArrayList<Coordinate>();
+      ArrayList<GeoPoint> coordinates = new ArrayList<GeoPoint>();
         
       for (int j = 0; j < points.size(); j++) {
         JSONObject coordinate = points.getJSONObject(j);
-        Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), 0);
+        GeoPoint coord = new GeoPoint(coordinate.getFloat("x"), coordinate.getFloat("y"), 0);
         coordinates.add(coord);
       }
 
@@ -34,6 +33,7 @@ class Track {
         lengthWithKnownPavement += length;
       }
     }
+    computeMinMax();    
   }
 
   ArrayList<TrackSegment> getTrackSegments() {
@@ -46,5 +46,32 @@ class Track {
 
   float getLengthWithKnownPavement() {
     return this.lengthWithKnownPavement;
+  }
+  void drawGeo(GeoPointMapper mapper) {
+    for(int i=0; i<trackSegments.size();i++) {
+      TrackSegment s = trackSegments.get(i);
+      s.drawGeo(mapper);
+    }
+  }
+  double minLatitude, maxLatitude, minLongitude, maxLongitude;
+  void computeMinMax() {
+     double maxLatitude = Double.NEGATIVE_INFINITY;
+     double minLatitude = Double.POSITIVE_INFINITY;
+     double maxLongitude = Double.NEGATIVE_INFINITY;
+     double minLongitude = Double.POSITIVE_INFINITY;
+     for (int i=0; i < trackSegments.size(); i++) {
+       ArrayList<GeoPoint> coordinates = trackSegments.get(i).coordinates;
+       for (int j=0; j<coordinates.size(); j++) {
+         GeoPoint p = coordinates.get(j);
+         if (p.longitude > maxLongitude) maxLongitude = p.longitude;
+         if (p.longitude < minLongitude) minLongitude = p.longitude;
+         if (p.latitude > maxLatitude) maxLatitude = p.latitude;
+         if (p.latitude < minLatitude) minLatitude = p.latitude;
+       }
+     }
+     this.maxLatitude = maxLatitude;
+     this.minLatitude = minLatitude;
+     this.maxLongitude = maxLongitude;
+     this.minLongitude = minLongitude;
   }
 }

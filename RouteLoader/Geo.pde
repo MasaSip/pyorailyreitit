@@ -1,4 +1,4 @@
-class GeoPoint implements Cloneable,Comparable<GeoPoint> {
+class GeoPoint implements Cloneable, Comparable<GeoPoint> {
   double longitude, latitude, height;
   Object extraData;
   
@@ -45,7 +45,7 @@ class GeoPointMapper { //<>//
     originLongitude = (minLongitude+maxLongitude)/2;
     originLatitude = (minLatitude+maxLatitude)/2;
     
-    double longitudeRange = Math.cos(originLatitude*(Math.PI/180))*(maxLongitude-minLongitude); //<>//
+    double longitudeRange = Math.cos(originLatitude*(Math.PI/180))*(maxLongitude-minLongitude); //<>// //<>//
     double latitudeRange = maxLatitude-minLatitude;
     float aspect = (float)(longitudeRange/latitudeRange);
     float viewAspect = ((float)width)/height;
