@@ -20,7 +20,11 @@ class Track implements GeoDrawable {
         
       for (int j = 0; j < points.size(); j++) {
         JSONObject coordinate = points.getJSONObject(j);
-        Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), coordinate.getFloat("z"));
+        String sz = coordinate.getString("z","null");
+        float z=0;
+        if (!sz.equals("null")) z=coordinate.getFloat("z");
+        
+        Coordinate coord = new Coordinate(coordinate.getFloat("x"), coordinate.getFloat("y"), z);
         coordinates.add(coord);
       }
 

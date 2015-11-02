@@ -12,7 +12,8 @@ color fontColor;
 color rectColor;
 
 Slider slider;
-String[] route;
+
+ArrayList<String[]> routes;
 
 PImage[] route1img;
 PImage[] route2img;
@@ -49,8 +50,8 @@ void basicSetup() {
   // get from backend (road types)
 
   //route = loadRoutes();
-  route = new String[]{"tarmac-low-sea", "tarmac-up", "tarmac-high", "tarmac-high", "gravel-down", "gravel-low", "gravel-low", "gravel-low", "gravel-low", "tarmac-low-sea", "Jännästä jännään -reitti", "5"};
-
+  routes = new ArrayList<String[]>();
+  
   chosenRoute = 0;
   newRoutes = true;
 }
@@ -70,13 +71,12 @@ void createViews() {
   views[2] = new View(2, bgColor1, "Reitti");
 
   // show chosen route on the map
-  views[3] = new View(3, bgColor1, "Valittu reitti kartalla");
-
+  views[3] = new View(3, bgColor1, "Reittikartta");
+  
 }
 
 void draw() {
   drawViews();
-  listenKinect();
 }
 
 void drawViews() {
@@ -124,43 +124,71 @@ void drawViews() {
   else if (currentView == 2) {
     if (prevView < currentView && newRoutes == true) {
       // get two closest routes from backend
-      //ArrayList<String[]> routes2 = new ArrayList<String[]>();
-      //routes2 = getRoutes(slider.getSliderValue(3, 15));
-      println("Valittu reittipituus: " + slider.getSliderValue(3, 13));
+      routes = getRoutes(slider.getSliderValue(3, 15));
+      
+      
+      println("Valittu reittipituus: " + slider.getSliderValue(3, 15));
+
       // save route images to images list
-      route1img = getRouteImages();
-      route2img = getRouteImages();
+      route1img = getRouteImages(routes.get(0));
+      route2img = getRouteImages(routes.get(1));
       newRoutes = false;
     }
 
     // texts
-    PFont font2 = createFont("calibri.ttf", 30);
+    PFont font2 = createFont("calibri.ttf", 40);
     textFont(font2);
     fill(255,255,255);
     text(views[2].title, 10, 60);
 
     // routes
-    drawRoute(route1img, 1, getRouteName(route), getRouteLength(route));
-    drawRoute(route2img, 2, getRouteName(route), getRouteLength(route));
-  }
-
+    drawRoute(route1img, 1, getRouteName(routes.get(0)), getRouteLength(routes.get(0)), routes.get(0));
+    drawRoute(route2img, 2, getRouteName(routes.get(1)), getRouteLength(routes.get(1)), routes.get(1));
+  }  
+  // maps
   else if (currentView == 3) {
     // background
     background(views[3].clr);
 
     // texts
-    PFont font2 = createFont("calibri.ttf", 30);
+    PFont font2 = createFont("calibri.ttf", 40);
     textFont(font2);
     fill(255,255,255);
     text(views[3].title, 10, 60);
-
-    fill(15, 180, 150);
-    rect(200, 120, 870, 500);
-  }
-
+    
+    if (chosenRoute == -1) {
+    
+      PFont font3 = createFont("calibri.ttf", 30);
+      textFont(font3);
+      fill(255,255,255);
+      text(getRouteName(routes.get(0)), 0, 0);
+      
+      // map
+      fill(15, 180, 150);
+      image(getMap(getRouteLength(routes.get(0))), 200, 120);
+      
+    }
+    
+    else if (chosenRoute == 1) {
+      PFont font3 = createFont("calibri.ttf", 30);
+      textFont(font3);
+      fill(255,255,255);
+      text(getRouteName(routes.get(0)), 0, 0);
+      
+      // map
+      fill(15, 180, 150);
+      image(getMap(getRouteLength(routes.get(1))), 200, 120);
+    }
+  }  
+  
 }
 
-PImage[] getRouteImages() {
+PImage getMap(String routeLength) {
+  PImage map = loadImage("map" + routeLength + ".png");
+  return map;
+}
+
+PImage[] getRouteImages(String[] route) {
   PImage[] images = new PImage[10];
   for (int i = 0; i < route.length-1; i++) {
     float random = random(100);
@@ -214,7 +242,7 @@ String getRouteLength(String[] route) {
   return route[11];
 }
 
-void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLength) {
+void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLength, String[] route) {
   for (int i = 0; i < images.length; i++) {
     if (route[i].equals("tarmac-high") || route[i].equals("gravel-high")) {
       //platform for the route image
@@ -236,6 +264,7 @@ void drawRoute(PImage[] images, int whichRoute, String routeName, String routeLe
   text(routeName + ", " + routeLength, 70, 180+whichRoute*200);
 }
 
+<<<<<<< HEAD
 void listenKinect() {
   String gesture;
 
@@ -253,6 +282,8 @@ void listenKinect() {
   else if (gesture.equals("horizontal")) moveSlider(true);
 }
 
+=======
+>>>>>>> master
 void keyPressed() {
   // confirm: wave right or left arm
   if (keyCode == CONTROL) {
@@ -278,6 +309,17 @@ void confirmEvent() {
   }
 }
 
+<<<<<<< HEAD
+=======
+void confirmEvent() {
+  if (currentView >= 0 && currentView < 3) {
+    prevView = currentView;
+    currentView++;
+    println("Näkymä " + currentView);
+  }
+}
+
+>>>>>>> master
 void returnEvent() {
   if (currentView <= 3 && currentView > 0) {
     prevView = currentView;
@@ -286,6 +328,7 @@ void returnEvent() {
   }
 }
 
+<<<<<<< HEAD
 void moveSelector(boolean withKinect) {
   if (withKinect) chosenRoute = int(kinectTracker.getVerticalScaled());
   else if (mouseY < height/2) chosenRoute = -1;
@@ -302,3 +345,12 @@ void moveSlider(boolean withKinect) {
     slider.slide(mouseX);
   }
 }
+=======
+void moveSelector() {
+  
+}
+
+void moveSlider() {
+  slider.slide(mouseX);
+}
+>>>>>>> master
