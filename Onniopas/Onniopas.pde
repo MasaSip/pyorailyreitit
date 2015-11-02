@@ -242,33 +242,45 @@ void listenKinect(); {
 
   if (gesture.equals("confirm")) confirmEvent();
   else if (gesture.equals("return")) returnEvent();
-  else if (gesture.equals("vertcal")) moveSelector();
+  else if (gesture.equals("vertical")) moveSelector();
   else if (gesture.equals("horizontal")) moveSlider();
 }
 
 void keyPressed() {
   // confirm: wave right or left arm
   if (keyCode == CONTROL) {
-    if (currentView >= 0 && currentView < 3) {
-      prevView = currentView;
-      currentView++;
-      println("Näkymä " + currentView);
-    }
+    confirmEvent();
   }
 
   // return: step backwards
   else if (keyCode == ALT) {
-    if (currentView <= 3 && currentView > 0) {
-      prevView = currentView;
-      currentView--;
-      println("Näkymä " + currentView);
-    }
+    returnEvent();
   }
 
   // slide: move hand in front of the user
   else if (keyCode == SHIFT) {
     moveSlider();
   }
+}
+
+void confirmEvent() {
+  if (currentView >= 0 && currentView < 3) {
+    prevView = currentView;
+    currentView++;
+    println("Näkymä " + currentView);
+  }
+}
+
+void returnEvent() {
+  if (currentView <= 3 && currentView > 0) {
+    prevView = currentView;
+    currentView--;
+    println("Näkymä " + currentView);
+  }
+}
+
+void moveSelector() {
+  
 }
 
 void moveSlider() {
