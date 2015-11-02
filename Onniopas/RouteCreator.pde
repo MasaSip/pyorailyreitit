@@ -14,11 +14,6 @@
 //ArrayList<String[]> result;
 ArrayList<String[]> result = new ArrayList<String[]>();
 
-void setup() {
-  getRoutes(10);
-  //result = new ArrayList<String[]>();
-}
-
 String numbers = "1234567890";
 int closestRoute1Index = 0;
 float closestRoute1Length = 1000.0;
@@ -32,7 +27,7 @@ int seaLevel = 3;
 
 ArrayList<String[]> getRoutes(float targetLength) { // VAIHDA LOPUKSI TYYPPIIN String[] !!!
 
-  String[] allRoutes = loadStrings("routesTargetFormat.txt");
+  String[] allRoutes = loadStrings("routes.txt");
 
   //for (int i = 0; i < allRoutes.length; i++) {
   //  println(allRoutes[i]);
