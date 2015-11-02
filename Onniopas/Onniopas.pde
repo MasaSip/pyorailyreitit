@@ -126,7 +126,7 @@ void drawViews() {
       // get two closest routes from backend
       //ArrayList<String[]> routes2 = new ArrayList<String[]>();
       //routes2 = getRoutes(slider.getSliderValue(3, 15));
-      println("Valittu reittipituus: " + slider.getSliderValue(3, 15));
+      println("Valittu reittipituus: " + slider.getSliderValue(3, 13));
       // save route images to images list
       route1img = getRouteImages();
       route2img = getRouteImages();
@@ -249,7 +249,7 @@ void listenKinect() {
 
   if (gesture.equals("confirm")) confirmEvent();
   else if (gesture.equals("return")) returnEvent();
-  else if (gesture.equals("vertcal")); moveSelector(true);
+  else if (gesture.equals("vertcal")) moveSelector(true);
   else if (gesture.equals("horizontal")) moveSlider(true);
 }
 
@@ -287,8 +287,9 @@ void returnEvent() {
 }
 
 void moveSelector(boolean withKinect) {
-  if (withKinect) chosenRoute = kinectTracker.getVerticalScaled();
-  else if ()
+  if (withKinect) chosenRoute = int(kinectTracker.getVerticalScaled());
+  else if (mouseY < height/2) chosenRoute = -1;
+  else chosenRoute = 1;
 }
 
 void moveSlider(boolean withKinect) {
