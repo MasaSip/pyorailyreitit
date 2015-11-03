@@ -51,7 +51,7 @@ void draw() {
 
   leftFieldLimits = new int[]{kinect.width/10, kinect.width/4, kinect.height*1/2, kinect.height*4/5};
   rightFieldLimits = new int[]{kinect.width*3/4, kinect.width*9/10, kinect.height*1/2, kinect.height*4/5};
-  frontFieldLimits = new int[]{kinect.width*1/6, kinect.width*5/6, kinect.height/100, kinect.height*3/10};
+  frontFieldLimits = new int[]{kinect.width*1/6, kinect.width*5/6, kinect.height/100, kinect.height*2/5};
   backFieldLimits = new int[]{kinect.width*1/3, kinect.width*2/3, kinect.height*4/5, kinect.height};
 
   // println("  left " + leftFieldLimits[0]); //106, 213, 192, 320
@@ -61,16 +61,16 @@ void draw() {
 
   fill(255);
   rect(0,0,kinect.width,kinect.height);
-  fill(150, 0, 0);
+  fill(250, 100, 100);
   rect(leftFieldLimits[0], leftFieldLimits[2],
    leftFieldLimits[1]-leftFieldLimits[0], leftFieldLimits[3]-leftFieldLimits[2]);
-  fill(0,150,0);
+  fill(100,250,100);
   rect(rightFieldLimits[0], rightFieldLimits[2],
    rightFieldLimits[1]-rightFieldLimits[0], rightFieldLimits[3]-rightFieldLimits[2]);
-  fill(0,0,150);
+  fill(100,100,250);
   rect(frontFieldLimits[0], frontFieldLimits[2],
    frontFieldLimits[1]-frontFieldLimits[0], frontFieldLimits[3]-frontFieldLimits[2]);
-  fill(100,100,100);
+  fill(200,200,200);
   rect(backFieldLimits[0], backFieldLimits[2],
    backFieldLimits[1]-backFieldLimits[0], backFieldLimits[3]-backFieldLimits[2]);
 

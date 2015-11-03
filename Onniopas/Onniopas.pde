@@ -23,6 +23,7 @@ float route2length;
 
 int chosenRoute;
 boolean newRoutes;
+boolean useKinect;
 
 KinectTracker kinectTracker;
 
@@ -54,6 +55,7 @@ void basicSetup() {
 
   chosenRoute = 0;
   newRoutes = true;
+  useKinect = true;
 }
 void kinectSetup() {
   kinectTracker = new KinectTracker();
@@ -77,7 +79,7 @@ void createViews() {
 
 void draw() {
   drawViews();
-  listenKinect();
+  if (useKinect) listenKinect();
 }
 
 void drawViews() {
@@ -120,7 +122,7 @@ void drawViews() {
     // slider
     fill(247,110,29);
     slider.drawSlider();
-    
+
     PFont font4 = createFont("calibri.ttf", 30);
     textFont(font4);
     fill(255,255,255);
@@ -295,6 +297,11 @@ void keyPressed() {
   else if (keyCode == SHIFT) {
     moveSlider(false);
     if (currentView == 2) moveSelector(false);
+  }
+
+  else if (keyCode == TAB) {
+    if (useKinect) useKinect = false;
+    else useKinect = true;
   }
 }
 
