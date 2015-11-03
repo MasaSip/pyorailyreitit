@@ -16,7 +16,27 @@ and save it in the folder:
 
 	reittiopasRequest
 
-Using reittiopasRequest requres to have HTTP-REQUEST processing library installed
+Using reittiopasRequest requres to have HTTP-Request for Processing and Open Kinect for Processing libraries installed
+  
+## Running the application
+
+	Onniopas/Onniopas.pde
+
+Route data is read from Onniopas/data/routes.txt
+
+## Requesting and analysing route data
+
+Run 
+
+	reittiopasRequest/reittiopasRequest.pde
+  
+to request a route from reittiopasAPI. The route is saved to reittiopasRequest/output.txt
+
+Run
+  
+	RouteLoader/RouteLoader.pde
+
+to analyze routes from json files at RouteLoader/data, routes are saved to Onniopas/data/routes.txt
 
 ## Instructions for keyboard usage
 
