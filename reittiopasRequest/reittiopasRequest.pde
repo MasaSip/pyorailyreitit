@@ -19,4 +19,4 @@ String[] content = new String[1];
 content[0] = get.getContent();
 println(address);
 println("Reponse Content: " + content[0]);
-saveStrings("output.txt", content);
+saveStrings("output.json", content);

@@ -22,21 +22,23 @@ Using reittiopasRequest requres to have HTTP-Request for Processing and Open Kin
 
 	Onniopas/Onniopas.pde
 
-Route data is read from Onniopas/data/routes.txt
+Route data is read from Onniopas/data/routes.txt, which includes seven pre-analysed routes with different lengths.
 
-## Requesting and analysing route data
+## Adding a custom route for Onniopas
 
-Run 
+Adding a new route includes requesting and pre-analysing the route data. Pre-analysing the routes is separated into a separate RouteLoader -application in order to avoid heavy run time processing of data at Onniopas.
+
+To request a route from reittiopasAPI, run: 
 
 	reittiopasRequest/reittiopasRequest.pde
   
-to request a route from reittiopasAPI. The route is saved to reittiopasRequest/output.txt
+The route is saved to reittiopasRequest/output.json 
 
-Run
+RouteLoader/data contains a collection of unanlyzed routes in json format. To pre-analyze routes, run:
   
 	RouteLoader/RouteLoader.pde
 
-to analyze routes from json files at RouteLoader/data, routes are saved to Onniopas/data/routes.txt
+pre-analysed routes are saved to Onniopas/data/routes.txt
 
 ## Instructions for keyboard usage
 
