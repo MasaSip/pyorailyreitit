@@ -77,6 +77,7 @@ void createViews() {
 
 void draw() {
   drawViews();
+  listenKinect();
 }
 
 void drawViews() {
@@ -124,10 +125,10 @@ void drawViews() {
   else if (currentView == 2) {
     if (prevView < currentView && newRoutes == true) {
       // get two closest routes from backend
-      routes = getRoutes(slider.getSliderValue(3, 15));
+      routes = getRoutes(slider.getSliderValue(3, 13));
 
 
-      println("Valittu reittipituus: " + slider.getSliderValue(3, 15));
+      println("Valittu reittipituus: " + slider.getSliderValue(3, 13));
 
       // save route images to images list
       route1img = getRouteImages(routes.get(0));
@@ -163,7 +164,7 @@ void drawViews() {
     textFont(font2);
     fill(255,255,255);
     text(views[3].title, 10, 60);
-    
+
     PFont font3 = createFont("calibri.ttf", 30);
     textFont(font3);
     fill(255,255,255);
@@ -172,7 +173,7 @@ void drawViews() {
     // map
     fill(15, 180, 150);
     image(views[3].img, 200, 120);
-  } 
+  }
 }
 
 PImage getMap(String routeLength) {
@@ -269,7 +270,7 @@ void listenKinect() {
 
   if (gesture.equals("confirm")) confirmEvent();
   else if (gesture.equals("return")) returnEvent();
-  else if (gesture.equals("vertcal")) moveSelector(true);
+  else if (gesture.equals("vertical")) moveSelector(true);
   else if (gesture.equals("horizontal")) moveSlider(true);
 }
 
@@ -295,17 +296,17 @@ void confirmEvent() {
   if (currentView >= 0 && currentView < 3) {
     if (currentView == 2) {
       if (chosenRoute == 1) {
-        views[3].img = getMap(getRouteLength(routes.get(1)));  
+        views[3].img = getMap(getRouteLength(routes.get(1)));
       } else if (chosenRoute == -1) {
-        views[3].img = getMap(getRouteLength(routes.get(0)));  
+        views[3].img = getMap(getRouteLength(routes.get(0)));
       } else {
         return;
-      } 
+      }
     }
     prevView = currentView;
     currentView++;
     println("Näkymä " + currentView);
-    
+
   }
 }
 
