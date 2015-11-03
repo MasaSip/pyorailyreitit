@@ -62,16 +62,16 @@ void kinectSetup() {
 
 void createViews() {
   // First view: start view with title
-  views[0] = new View(0, bgColor1, loadImage("bike.png"), "NNIOPAS", "Paina CTRL siirtyäksesi valitsemaan reittejä.");
+  views[0] = new View(0, bgColor1, loadImage("bike.png"), "NNIOPAS", "Nosta käsi oikealle tai vasemmalle siirtyäksesi valitsemaan reittejä.");
 
   // Second view: length of the route
-  views[1] = new View(0, bgColor1, "Reitin pituus", "Paina CTRL nähdäksesi reitti.");
+  views[1] = new View(0, bgColor1, "Reitin pituus", "");
 
   // Third view: visualise the (three) best route(s)
   views[2] = new View(2, bgColor1, "Reitti");
 
   // show chosen route on the map
-  views[3] = new View(3, bgColor1, "Reittikartta");
+  views[3] = new View(3, bgColor1, "Kartta");
 
 }
 
@@ -94,7 +94,7 @@ void drawViews() {
     text(views[0].title, 495, 325);
     PFont font1 = createFont("calibri.ttf", 30);
     textFont(font1);
-    text(views[0].text, 400, 600);
+    text(views[0].text, 250, 600);
 
     // bike
     rotate(PI/-4.0);
@@ -105,10 +105,10 @@ void drawViews() {
     newRoutes = true;
 
     // texts
-    PFont font2 = createFont("calibri.ttf", 30);
+    PFont font2 = createFont("calibri.ttf", 40);
     textFont(font2);
     fill(255,255,255);
-    text(views[1].title, 10, 60);
+    text(views[1].title, 500, 60);
     PFont font3 = createFont("calibri.ttf", 30);
     textFont(font3);
     fill(255,255,255);
@@ -120,6 +120,12 @@ void drawViews() {
     // slider
     fill(247,110,29);
     slider.drawSlider();
+    
+    PFont font4 = createFont("calibri.ttf", 30);
+    textFont(font4);
+    fill(255,255,255);
+    text("3", 60, 500);
+    text("13", 1200, 500);
   }
 
   else if (currentView == 2) {
@@ -147,7 +153,7 @@ void drawViews() {
     PFont font2 = createFont("calibri.ttf", 40);
     textFont(font2);
     fill(255,255,255);
-    text(views[2].title, 10, 60);
+    text(views[2].title, 550, 60);
 
     // routes
     drawRoute(route1img, 1, getRouteName(routes.get(0)), getRouteLength(routes.get(0)), routes.get(0));
@@ -163,12 +169,12 @@ void drawViews() {
     PFont font2 = createFont("calibri.ttf", 40);
     textFont(font2);
     fill(255,255,255);
-    text(views[3].title, 10, 60);
+    text(views[3].title, 500, 60);
 
     PFont font3 = createFont("calibri.ttf", 30);
     textFont(font3);
     fill(255,255,255);
-    text(getRouteName(routes.get(0)), 0, 0);
+    text(getRouteName(routes.get(0)), 200, 650);
 
     // map
     fill(15, 180, 150);
