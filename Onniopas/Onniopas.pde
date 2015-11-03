@@ -147,9 +147,9 @@ void drawViews() {
 
     //selection
     noFill();
-    strokeWeight(5);
+    strokeWeight(7);
     stroke(230,148,29);
-    rect(50,300+chosenRoute*100,1170,200);
+    rect(50,300+chosenRoute*100,1170,190);
   }
 
   // maps
