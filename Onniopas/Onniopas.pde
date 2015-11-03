@@ -155,7 +155,7 @@ void drawViews() {
     fill(255,255,255);
     text(views[3].title, 10, 60);
     
-    if (chosenRoute == -1) {
+  } else if (chosenRoute == -1) {
     
       PFont font3 = createFont("calibri.ttf", 30);
       textFont(font3);
@@ -164,21 +164,9 @@ void drawViews() {
       
       // map
       fill(15, 180, 150);
-      image(getMap(getRouteLength(routes.get(0))), 200, 120);
+      image(views[3].img, 200, 120);
       
-    }
-    
-    else if (chosenRoute == 1) {
-      PFont font3 = createFont("calibri.ttf", 30);
-      textFont(font3);
-      fill(255,255,255);
-      text(getRouteName(routes.get(0)), 0, 0);
-      
-      // map
-      fill(15, 180, 150);
-      image(getMap(getRouteLength(routes.get(1))), 200, 120);
-    }
-  }  
+  } 
 }
 
 PImage getMap(String routeLength) {
@@ -299,9 +287,19 @@ void keyPressed() {
 
 void confirmEvent() {
   if (currentView >= 0 && currentView < 3) {
+    if (currentView == 2) {
+      if (chosenRoute == 1) {
+        views[3].img = getMap(getRouteLength(routes.get(1)));  
+      } else if (chosenRoute == -1) {
+        views[3].img = getMap(getRouteLength(routes.get(0)));  
+      } else {
+        return;
+      } 
+    }
     prevView = currentView;
     currentView++;
     println("Näkymä " + currentView);
+    
   }
 }
 
@@ -318,6 +316,7 @@ void moveSelector(boolean withKinect) {
   if (withKinect) chosenRoute = int(kinectTracker.getVerticalScaled());
   else if (mouseY < height/2) chosenRoute = -1;
   else chosenRoute = 1;
+
 }
 
 void moveSlider(boolean withKinect) {
