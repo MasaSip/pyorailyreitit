@@ -17,3 +17,11 @@ and save it in the folder:
 	reittiopasRequest
 
 Using reittiopasRequest requres to have HTTP-REQUEST processing library installed
+
+## Instructions for keyboard usage
+
+CTRL to confirm
+ALT to return
+use mouse to hoover your choise
+SHIFT to choose
+
