@@ -10,7 +10,7 @@ class KinectTracker {
 
   float floorDistance = 3.0; // in meters
   float distanceBuffer = 1.0; // in meters
-  int timeToConfirm = 70; // amount of times draw is called
+  int timeToConfirm = 60; // amount of times draw is called
   int timeToReturn = 80;
   int areaToConfirm = 300; // minimum amount of points
   boolean recognizedGesture = false;

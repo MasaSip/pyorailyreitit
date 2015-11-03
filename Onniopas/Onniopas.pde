@@ -125,10 +125,10 @@ void drawViews() {
   else if (currentView == 2) {
     if (prevView < currentView && newRoutes == true) {
       // get two closest routes from backend
-      routes = getRoutes(slider.getSliderValue(3, 15));
+      routes = getRoutes(slider.getSliderValue(3, 13));
 
 
-      println("Valittu reittipituus: " + slider.getSliderValue(3, 15));
+      println("Valittu reittipituus: " + slider.getSliderValue(3, 13));
 
       // save route images to images list
       route1img = getRouteImages(routes.get(0));
@@ -165,22 +165,19 @@ void drawViews() {
     fill(255,255,255);
     text(views[3].title, 10, 60);
 
-  } else if (chosenRoute == -1) {
+    PFont font3 = createFont("calibri.ttf", 30);
+    textFont(font3);
+    fill(255,255,255);
+    text(getRouteName(routes.get(0)), 0, 0);
 
-      PFont font3 = createFont("calibri.ttf", 30);
-      textFont(font3);
-      fill(255,255,255);
-      text(getRouteName(routes.get(0)), 0, 0);
-
-      // map
-      fill(15, 180, 150);
-      image(views[3].img, 200, 120);
-
+    // map
+    fill(15, 180, 150);
+    image(views[3].img, 200, 120);
   }
 }
 
 PImage getMap(String routeLength) {
-  PImage map = loadImage("map" + routeLength + ".png");
+  PImage map = loadImage("maps/map" + routeLength + ".png");
   return map;
 }
 
