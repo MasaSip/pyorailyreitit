@@ -51,6 +51,7 @@ void basicSetup() {
 
   //route = loadRoutes();
   routes = new ArrayList<String[]>();
+
   chosenRoute = 0;
   newRoutes = true;
 }
@@ -71,6 +72,7 @@ void createViews() {
 
   // show chosen route on the map
   views[3] = new View(3, bgColor1, "Reittikartta");
+
 }
 
 void draw() {
@@ -123,8 +125,8 @@ void drawViews() {
     if (prevView < currentView && newRoutes == true) {
       // get two closest routes from backend
       routes = getRoutes(slider.getSliderValue(3, 15));
-      
-      
+
+
       println("Valittu reittipituus: " + slider.getSliderValue(3, 15));
 
       // save route images to images list
@@ -142,6 +144,12 @@ void drawViews() {
     // routes
     drawRoute(route1img, 1, getRouteName(routes.get(0)), getRouteLength(routes.get(0)), routes.get(0));
     drawRoute(route2img, 2, getRouteName(routes.get(1)), getRouteLength(routes.get(1)), routes.get(1));
+
+    //selection
+    noFill();
+    strokeWeight(7);
+    stroke(230,148,29);
+    rect(50,300+chosenRoute*100,1170,190);
   }
 
   // maps
@@ -161,7 +169,7 @@ void drawViews() {
       textFont(font3);
       fill(255,255,255);
       text(getRouteName(routes.get(0)), 0, 0);
-      
+
       // map
       fill(15, 180, 150);
       image(views[3].img, 200, 120);
