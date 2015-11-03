@@ -51,7 +51,7 @@ void draw() {
 
   leftFieldLimits = new int[]{kinect.width/10, kinect.width/4, kinect.height*1/2, kinect.height*4/5};
   rightFieldLimits = new int[]{kinect.width*3/4, kinect.width*9/10, kinect.height*1/2, kinect.height*4/5};
-  frontFieldLimits = new int[]{kinect.width*1/6, kinect.width*5/6, kinect.height/10, kinect.height*2/5};
+  frontFieldLimits = new int[]{kinect.width*1/6, kinect.width*5/6, kinect.height/100, kinect.height*3/10};
   backFieldLimits = new int[]{kinect.width*1/3, kinect.width*2/3, kinect.height*4/5, kinect.height};
 
   // println("  left " + leftFieldLimits[0]); //106, 213, 192, 320
