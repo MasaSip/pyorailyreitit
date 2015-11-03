@@ -8,15 +8,8 @@ Clone this repository:
 	
 	git clone git@github.com:atanasi/pyorailyreitit.git
 
-Download ReittiopasAPI user
+Install Open Kinect for Processing library
 
-	https://drive.google.com/drive/folders/0BzfcG6l7ksk2YlRfZ0kxSUVEbHM
-
-and save it in the folder:
-
-	reittiopasRequest
-
-Using reittiopasRequest requres to have HTTP-Request for Processing and Open Kinect for Processing libraries installed
   
 ## Running the application
 
@@ -27,6 +20,10 @@ Route data is read from Onniopas/data/routes.txt, which includes seven pre-analy
 ## Adding a custom route for Onniopas
 
 Adding a new route includes requesting and pre-analysing the route data. Pre-analysing the routes is separated into a separate RouteLoader -application in order to avoid heavy run time processing of data at Onniopas.
+
+Install HTTP-Request for Processing library.
+
+Save your reittiopasAPI user to reittiopas_user.txt at reittiopasRequest
 
 To request a route from reittiopasAPI, run: 
 
