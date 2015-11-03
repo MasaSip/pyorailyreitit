@@ -151,6 +151,7 @@ void drawViews() {
     stroke(230,148,29);
     rect(50,300+chosenRoute*100,1170,200);
   }
+
   // maps
   else if (currentView == 3) {
     // background
@@ -301,6 +302,7 @@ void keyPressed() {
   // slide: move hand in front of the user
   else if (keyCode == SHIFT) {
     moveSlider(false);
+    if (currentView == 2) moveSelector(false);
   }
 }
 
