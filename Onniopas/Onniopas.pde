@@ -135,6 +135,13 @@ void drawViews() {
       newRoutes = false;
     }
 
+    //selection
+    noFill();
+    strokeWeight(7);
+    stroke(230,148,29);
+    fill(230,148,29);
+    if (chosenRoute != 0) rect(50,300+chosenRoute*100,1170,190);
+
     // texts
     PFont font2 = createFont("calibri.ttf", 40);
     textFont(font2);
@@ -144,12 +151,6 @@ void drawViews() {
     // routes
     drawRoute(route1img, 1, getRouteName(routes.get(0)), getRouteLength(routes.get(0)), routes.get(0));
     drawRoute(route2img, 2, getRouteName(routes.get(1)), getRouteLength(routes.get(1)), routes.get(1));
-
-    //selection
-    noFill();
-    strokeWeight(7);
-    stroke(230,148,29);
-    rect(50,300+chosenRoute*100,1170,190);
   }
 
   // maps
