@@ -39,6 +39,7 @@ pre-analysed routes are saved to Onniopas/data/routes.txt
 
 ## Instructions for keyboard usage
 
+TAB to switch between keyboard and Kinect usage
 CTRL to confirm
 ALT to return
 use mouse to hoover your choise
